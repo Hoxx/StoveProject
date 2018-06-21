@@ -19,3 +19,10 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#代码压缩级别
+-optimizationpasses 5
+#包名不混合大小写
+-dontusemixedcaseclassnames
+ #混淆时是否记录日志
+-verbose

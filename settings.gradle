@@ -1,1 +1,1 @@
-include ':app', ':stove'
+include ':app', ':stove', ':firerouter', ':otherapp', ':firerouterprocessor', ':firerouterannotation'
