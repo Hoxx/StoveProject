@@ -4,6 +4,6 @@ import android.content.Intent;
 
 public interface onPutExtra {
 
-    void onExtra(Intent intent);
+    void onExtra(String alias, Intent intent);
 
 }

@@ -89,7 +89,7 @@ public class FireRouter {
             }
             //设置传参
             if (onPutExtra != null) {
-                onPutExtra.onExtra(intent);
+                onPutExtra.onExtra(alias, intent);
             }
             //跳转
             activityLife.currentActivity().startActivity(intent);

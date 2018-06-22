@@ -2,10 +2,8 @@ package com.x.firerouterprocessor;
 
 import com.google.auto.service.AutoService;
 import com.squareup.javapoet.ClassName;
-import com.squareup.javapoet.CodeBlock;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
-import com.squareup.javapoet.ParameterizedTypeName;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 import com.x.firerouterannotation.FireRule;
@@ -73,6 +71,7 @@ public class FireRouterProcessor extends AbstractProcessor {
         //清除列表里的所有注解
         annotationMap.clear();
         //获取所有注解
+        printNodeMessage("searching annotation--------");
         Set<? extends Element> annotationSet = roundEnvironment.getElementsAnnotatedWith(FireRule.class);
         //循环注解
         printNodeMessage("start loop annotation--------");
@@ -103,18 +102,20 @@ public class FireRouterProcessor extends AbstractProcessor {
                 }
             }
         }
-        printNodeMessage("start generate Java Code--------");
+        if (!annotationMap.isEmpty()) {
+            printNodeMessage("start generate Java Code--------");
 
-        JavaFile javaFile = generateJavaCode();
-        if (javaFile == null) {
-            error(null, "FireRule annotation is never used");
-            return true;
-        } else {
-            try {
-                javaFile.writeTo(filer);
-            } catch (IOException e) {
-                error(null, "javaFile write error @%s", e.toString());
-                e.printStackTrace();
+            JavaFile javaFile = generateJavaCode();
+            if (javaFile == null) {
+                error(null, "FireRule annotation is never used");
+                return true;
+            } else {
+                try {
+                    javaFile.writeTo(filer);
+                } catch (IOException e) {
+                    error(null, "javaFile write error @%s", e.toString());
+                    e.printStackTrace();
+                }
             }
         }
         return true;
@@ -149,35 +150,24 @@ public class $_$FireRuler implements FireRulerInterface {
                 .addException(TypeName.get(ClassNotFoundException.class));
 
         printNodeMessage("Create CodeBlock!");
-        CodeBlock.Builder codeBuilder = CodeBlock.builder().beginControlFlow("switch (alias.hashCode())");
-        methodBuilder.addStatement("switch (alias.hashCode())");
+
+        methodBuilder.beginControlFlow("switch (alias.hashCode())");
         for (Map.Entry<Integer, FireRulerClass> entry : annotationMap.entrySet()) {
-
             FireRulerClass fireRulerClass = entry.getValue();
-
-            codeBuilder.add("case $L:", fireRulerClass.getAliasHashCode()).addStatement("return Class.forName($N)", fireRulerClass.getClassFullName());
-
-//            methodBuilder.addStatement("case $L:")
-
+            methodBuilder.addStatement("case $L:\n $> return Class.forName($S) $<", fireRulerClass.getAliasHashCode(), fireRulerClass.getClassFullName());
         }
-        codeBuilder.addStatement("return null");
-        codeBuilder.endControlFlow();
-        methodBuilder.addStatement(codeBuilder.build());
+        methodBuilder.endControlFlow();
+        methodBuilder.addStatement("return null");
         printNodeMessage("Create MethodSpec end!");
         //创建类
-        printNodeMessage("Create Interface!");
-        TypeSpec typeSpecInterface = TypeSpec.interfaceBuilder(ClassName.get("com.x.firerouter", "FireRulerInterface")).build();
-        printNodeMessage("Create Interface mid!");
-//        TypeName interfaceTypeName = ParameterizedTypeName.get(ClassName.get("com.x.firerouter", "FireRulerInterface"));
-        printNodeMessage("Create Interface end!");
         printNodeMessage("Create Class!");
         TypeSpec typeSpec = TypeSpec.classBuilder("$$FireRuler")
                 .addModifiers(Modifier.PUBLIC)
-                .addSuperinterface(typeSpecInterface.superclass)
+                .addSuperinterface(ClassName.get("com.x.firerouter", "FireRulerInterface"))
                 .addMethod(methodBuilder.build())
                 .build();
         //输入包名，与Class的参数，返回生成代码的Filer
-        return JavaFile.builder(FireRulerConstant.FIRE_RULER_INSTANCE_PACKAGE_NAME, typeSpec).build();
+        return JavaFile.builder("com.x.firerouter", typeSpec).build();
     }
 
     //检查直接的类型是否正确
