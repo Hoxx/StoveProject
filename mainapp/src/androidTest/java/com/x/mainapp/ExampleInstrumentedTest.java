@@ -1,4 +1,4 @@
-package com.x.stove;
+package com.x.mainapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.x.stove", appContext.getPackageName());
+        assertEquals("com.x.mainapp", appContext.getPackageName());
     }
 }

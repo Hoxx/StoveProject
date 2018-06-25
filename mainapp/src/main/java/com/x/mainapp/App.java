@@ -1,4 +1,4 @@
-package com.x.stove;
+package com.x.mainapp;
 
 import android.app.Application;
 

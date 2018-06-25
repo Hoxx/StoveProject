@@ -3,6 +3,7 @@ package com.x.firerouter;
 import android.app.Application;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.util.Log;
 
 public class FireRouter {
 
@@ -36,6 +37,7 @@ public class FireRouter {
 
     //初始化
     public static void initialize(Application app, boolean debug) {
+        Log.e("TAG", "FireRouter initialize-----");
         if (app == null)
             throw new NullPointerException("FireRouter register not be null params");
         FireConstant.DEBUG = debug;

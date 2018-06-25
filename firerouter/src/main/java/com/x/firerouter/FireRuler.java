@@ -1,11 +1,28 @@
 package com.x.firerouter;
 
+import android.util.SparseArray;
+
 public class FireRuler {
 
     private static FireRulerInterface fireRule;
+    private static FireRuler instance;
+
+    private SparseArray<Class<?>> fireRuleMap;
+
 
     FireRuler() {
+        fireRuleMap = new SparseArray<>();
+    }
 
+    private static FireRuler getInstance() {
+        if (instance == null) {
+            synchronized (FireRuler.class) {
+                if (instance == null) {
+                    instance = new FireRuler();
+                }
+            }
+        }
+        return instance;
     }
 
     //获取单例
@@ -36,5 +53,25 @@ public class FireRuler {
             FireConstant.Log("【" + pkgName + "." + clsName + "】" + e.toString());
         }
         return null;
+    }
+
+    public static void addRulerMap(int aliasHashCode, Class<?> cls) {
+        getInstance().addMap(aliasHashCode, cls);
+    }
+
+    public static Class<?> getAliasClass(int aliasHashCode) {
+        return getInstance().getAlias(aliasHashCode);
+    }
+
+
+    private void addMap(int aliasHashCode, Class<?> cls) {
+        Class<?> clz = fireRuleMap.get(aliasHashCode);
+        if (clz == null) {
+            fireRuleMap.put(aliasHashCode, cls);
+        }
+    }
+
+    private Class<?> getAlias(int aliasHashCode) {
+        return fireRuleMap.get(aliasHashCode);
     }
 }

@@ -2,6 +2,7 @@ package com.x.firerouterprocessor;
 
 import com.google.auto.service.AutoService;
 import com.squareup.javapoet.ClassName;
+import com.squareup.javapoet.FieldSpec;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
@@ -74,14 +75,15 @@ public class FireRouterProcessor extends AbstractProcessor {
         printNodeMessage("searching annotation--------");
         Set<? extends Element> annotationSet = roundEnvironment.getElementsAnnotatedWith(FireRule.class);
         //循环注解
-        printNodeMessage("start loop annotation--------");
+        printNodeMessage("start loop annotation--------" + annotationSet.size());
         for (Element element : annotationSet) {
             if (checkAnnotationValid(element)) {
                 //ElementType.TYPE注解可以直接强转TypeElement
                 TypeElement typeElement = (TypeElement) element;
                 //根据注解的@Target值，对应的Element,可以直接转换,非对应的Element，通过getEnclosingElement转换获取
                 PackageElement packageElement = (PackageElement) element.getEnclosingElement();
-
+                String packageName = packageElement.getQualifiedName().toString();
+                printNodeMessage("start loop annotation packageName:--------" + packageName);
                 //全类名
                 String fullClassName = typeElement.getQualifiedName().toString();
                 printNodeMessage("start loop annotation fullClassName:--------" + fullClassName);
@@ -93,7 +95,7 @@ public class FireRouterProcessor extends AbstractProcessor {
                     //获取FireRulerClass，并判空
                     FireRulerClass rulerClass = annotationMap.get(aliasHashCode);
                     if (rulerClass == null) {
-                        rulerClass = new FireRulerClass(alias, aliasHashCode, fullClassName);
+                        rulerClass = new FireRulerClass(alias, aliasHashCode, fullClassName, packageName);
                         annotationMap.put(aliasHashCode, rulerClass);
                     } else {
                         error(element, "There are two identical aliases @%s and @%s", rulerClass.getClassFullName(), fullClassName);
@@ -117,6 +119,9 @@ public class FireRouterProcessor extends AbstractProcessor {
                     e.printStackTrace();
                 }
             }
+
+
+
         }
         return true;
     }
@@ -142,6 +147,7 @@ public class $_$FireRuler implements FireRulerInterface {
     private JavaFile generateJavaCode() {
         if (annotationMap.isEmpty()) return null;
         printNodeMessage("Create MethodSpec!");
+
         MethodSpec.Builder methodBuilder = MethodSpec.methodBuilder("getAlias")
                 .addAnnotation(Override.class)
                 .addModifiers(Modifier.PUBLIC)
@@ -152,19 +158,44 @@ public class $_$FireRuler implements FireRulerInterface {
         printNodeMessage("Create CodeBlock!");
 
         methodBuilder.beginControlFlow("switch (alias.hashCode())");
+
+        String packageName = null;
+
         for (Map.Entry<Integer, FireRulerClass> entry : annotationMap.entrySet()) {
             FireRulerClass fireRulerClass = entry.getValue();
-            methodBuilder.addStatement("case $L:\n $> return Class.forName($S) $<", fireRulerClass.getAliasHashCode(), fireRulerClass.getClassFullName());
+            if (packageName == null) {
+                packageName = fireRulerClass.getPackageName();
+            } else {
+                packageName = packageName.length() < fireRulerClass.getPackageName().length() ? packageName : fireRulerClass.getPackageName();
+            }
+            methodBuilder.addStatement("case $L: //$S \n $> return Class.forName($S) $<", fireRulerClass.getAliasHashCode(), fireRulerClass.getAlias(), fireRulerClass.getClassFullName());
         }
         methodBuilder.endControlFlow();
         methodBuilder.addStatement("return null");
         printNodeMessage("Create MethodSpec end!");
         //创建类
         printNodeMessage("Create Class!");
-        TypeSpec typeSpec = TypeSpec.classBuilder("$$FireRuler")
+        String classFileName = "$$FireRuler";
+        //更改生成的文件的名称
+//        if (packageName != null && !packageName.equals("")) {
+//            classFileName = classFileName + "$" + packageName.replaceAll("\\.", "");
+//        }
+
+        MethodSpec.Builder staticMethodBuilder = MethodSpec.methodBuilder("Test")
+                .addModifiers(Modifier.STATIC)
+                .addStatement("$T.out.println($S)", System.class, "ProcessorTag" + classFileName)
+                .returns(String.class)
+                .addStatement("return $S", classFileName);
+
+        FieldSpec fieldSpec = FieldSpec.builder(String.class, "INIT", Modifier.PRIVATE, Modifier.STATIC)
+                .initializer("Test()").build();
+
+        TypeSpec typeSpec = TypeSpec.classBuilder(classFileName)
                 .addModifiers(Modifier.PUBLIC)
                 .addSuperinterface(ClassName.get("com.x.firerouter", "FireRulerInterface"))
                 .addMethod(methodBuilder.build())
+//                .addMethod(staticMethodBuilder.build())//生成静态方法
+//                .addField(fieldSpec)//生成调用静态方法的静态变量（优先运行）
                 .build();
         //输入包名，与Class的参数，返回生成代码的Filer
         return JavaFile.builder("com.x.firerouter", typeSpec).build();

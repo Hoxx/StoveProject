@@ -6,7 +6,7 @@ import android.util.Log;
 
 import com.x.firerouterannotation.FireRule;
 
-@FireRule(alias = "Other")
+@FireRule(alias = "OtherActivity")
 public class OtherMainActivity extends AppCompatActivity {
 
     @Override

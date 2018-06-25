@@ -1,4 +1,4 @@
-package com.x.stove;
+package com.x.mainapp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,15 +9,13 @@ import com.x.firerouter.FireRouter;
 import com.x.firerouter.onPutExtra;
 import com.x.firerouterannotation.FireRule;
 
-@FireRule(alias = "AppMain")
-public class AppMainActivity extends AppCompatActivity implements View.OnClickListener, onPutExtra {
-
+@FireRule(alias = "MainActivity")
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, onPutExtra {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_app_main);
-
+        setContentView(R.layout.activity_main);
         findViewById(R.id.tv_main).setOnClickListener(this);
 
     }
@@ -26,7 +24,7 @@ public class AppMainActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_main:
-                FireRouter.startActivity("Other", this);
+                FireRouter.startActivity("OtherActivity", this);
                 break;
         }
     }
@@ -34,7 +32,7 @@ public class AppMainActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onExtra(String alias, Intent intent) {
         switch (alias) {
-            case "Other":
+            case "OtherActivity":
                 intent.putExtra("SDATA", "测试数据传输");
                 break;
         }

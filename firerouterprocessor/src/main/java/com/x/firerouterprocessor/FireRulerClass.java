@@ -6,11 +6,13 @@ public class FireRulerClass {
     private String alias;
     private int aliasHashCode;
     private String classFullName;
+    private String packageName;
 
-    public FireRulerClass(String alias, int aliasHashCode, String classFullName) {
+    public FireRulerClass(String alias, int aliasHashCode, String classFullName, String packageName) {
         this.alias = alias;
         this.aliasHashCode = aliasHashCode;
         this.classFullName = classFullName;
+        this.packageName = packageName;
     }
 
     public String getClassFullName() {
@@ -23,5 +25,9 @@ public class FireRulerClass {
 
     public int getAliasHashCode() {
         return aliasHashCode;
+    }
+
+    public String getPackageName() {
+        return packageName;
     }
 }
