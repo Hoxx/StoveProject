@@ -9,7 +9,7 @@ import com.x.firerouter.FireRouter;
 import com.x.firerouter.onPutExtra;
 import com.x.firerouterannotation.FireRule;
 
-@FireRule(alias = "MainActivity")
+@FireRule(alias = "Main")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, onPutExtra {
 
     @Override
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_main:
-                FireRouter.startActivity("OtherActivity", this);
+                FireRouter.startActivity("Other", this);
                 break;
         }
     }

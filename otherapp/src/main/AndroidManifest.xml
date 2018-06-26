@@ -4,6 +4,7 @@
 
     <application>
         <activity android:name=".OtherMainActivity" />
+        <activity android:name=".desc.OtherDescActivity" />
     </application>
 
 </manifest>
