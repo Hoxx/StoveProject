@@ -2,15 +2,14 @@ package com.x.firerouter;
 
 import android.util.SparseArray;
 
-public class FireRuler {
+public final class FireRuler {
 
-    private static FireRulerInterface fireRule;
     private static FireRuler instance;
 
-    private SparseArray<Class<?>> fireRuleMap;
+    private SparseArray<String> fireRuleMap;
 
 
-    FireRuler() {
+    private FireRuler() {
         fireRuleMap = new SparseArray<>();
     }
 
@@ -25,53 +24,46 @@ public class FireRuler {
         return instance;
     }
 
-    //获取单例
-    public static FireRulerInterface getFireRule() {
-        if (fireRule == null) {
-            synchronized (FireRuler.class) {
-                if (fireRule == null) {
-                    fireRule = getFireRulerInstance(FireConstant.FIRE_RULER_INSTANCE_PACKAGE_NAME, FireConstant.FIRE_RULER_INSTANCE_CLASS_NAME);
-                }
-            }
-        }
-        return fireRule;
+    //注册Activity
+    public static void registerRulerMap(String className) {
+        getInstance().callInterfaceMethod(className);
     }
 
-    //通过类名创建实例
-    private static FireRulerInterface getFireRulerInstance(String pkgName, String clsName) {
-        try {
-            Class<?> cls = Class.forName(pkgName + "." + clsName);
-            return (FireRulerInterface) cls.newInstance();
-        } catch (ClassNotFoundException e) {
-            FireConstant.Log("【" + pkgName + "." + clsName + "】Not exist!");
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-            FireConstant.Log("【" + pkgName + "." + clsName + "】" + e.toString());
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-            FireConstant.Log("【" + pkgName + "." + clsName + "】" + e.toString());
-        }
-        return null;
-    }
-
-    public static void addRulerMap(int aliasHashCode, Class<?> cls) {
-        getInstance().addMap(aliasHashCode, cls);
-    }
-
-    public static Class<?> getAliasClass(int aliasHashCode) {
+    //获取Activity
+    public static Class<?> getActivityClass(int aliasHashCode) throws ClassNotFoundException {
         return getInstance().getAlias(aliasHashCode);
     }
 
-
-    private void addMap(int aliasHashCode, Class<?> cls) {
-        Class<?> clz = fireRuleMap.get(aliasHashCode);
-        if (clz == null) {
-            fireRuleMap.put(aliasHashCode, cls);
+    //调用生成类的方法，注册Activity
+    //注释掉"e.printStackTrace();"，防止为空类名的崩溃
+    private void callInterfaceMethod(String className) {
+        try {
+            Class<?> cls = Class.forName(className);
+            FireRulerInterface rulerInterface = (FireRulerInterface) cls.newInstance();
+            rulerInterface.addFireRulerMap(fireRuleMap);
+        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+//            e.printStackTrace();
+        } catch (InstantiationException e) {
+//            e.printStackTrace();
         }
     }
 
-    private Class<?> getAlias(int aliasHashCode) {
-        return fireRuleMap.get(aliasHashCode);
+    //根据别名的Hash值，获取对应Activity
+    private Class<?> getAlias(int aliasHashCode) throws ClassNotFoundException {
+        print();
+        if (fireRuleMap.indexOfKey(aliasHashCode) < 0) {
+            throw new ClassNotFoundException();
+        }
+        return Class.forName(fireRuleMap.get(aliasHashCode));
+    }
+
+    private void print() {
+        for (int i = 0; i < fireRuleMap.size(); i++) {
+            int key = fireRuleMap.keyAt(i);
+            String value = fireRuleMap.get(key);
+            FireConstant.Log("print===" + value);
+        }
     }
 }

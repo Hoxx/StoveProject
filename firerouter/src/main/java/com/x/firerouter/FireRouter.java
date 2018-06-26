@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.util.Log;
 
+import java.util.Set;
+
 public class FireRouter {
 
     //单例
@@ -15,12 +17,8 @@ public class FireRouter {
     //用于获取App当前的onResume的Activity
     private FireActivityLife activityLife;
 
-    //获取匹配规则
-    private FireRulerInterface fireRuler;
-
     private FireRouter() {
         activityLife = new FireLifeCallback();
-        fireRuler = FireRuler.getFireRule();
     }
 
     //获取单例
@@ -57,7 +55,17 @@ public class FireRouter {
     //创建初始化的参数
     private void init(Application app) {
         packageManager = app.getPackageManager();
+        registerRulerMap(app.getPackageName());
         registerActivityLife(app);
+    }
+
+    //注册Activity的路由表
+    private void registerRulerMap(String currentPkgName) {
+        Set<String> pkgNames = FireRouterUtil.getAppAllActivityList(packageManager, currentPkgName);
+        for (String pkgName : pkgNames) {
+            String className = FireConstant.FIRE_RULER_INSTANCE_PACKAGE_NAME + "." + FireConstant.FIRE_RULER_INSTANCE_CLASS_NAME + pkgName.replace(".", "");
+            FireRuler.registerRulerMap(className);
+        }
     }
 
     //注册Activity的生命周期回调，用于获取当前Activity实例，启动跳转
@@ -69,34 +77,35 @@ public class FireRouter {
 
     //启动Activity
     private void startActivityIntent(String alias, onPutExtra onPutExtra) {
-        //获取匹配规则
-        if (fireRuler == null) {
-            fireRuler = FireRuler.getFireRule();
+        //获取匹配的结果
+        Class<?> cls = getClassForActivity(alias);
+        if (cls == null) {
+            FireConstant.Log("FireRouter search Activity instance empty");
+            return;
         }
-        if (fireRuler == null) return;
+        //创建跳转
+        Intent intent = new Intent(activityLife.currentActivity(), cls);
+        //检查当前Activity是否存在
+        if (intent.resolveActivity(packageManager) == null) {
+            FireConstant.Log(cls.getCanonicalName() + " Not exist!");
+            return;
+        }
+        //设置传参
+        if (onPutExtra != null) {
+            onPutExtra.onExtra(alias, intent);
+        }
+        //跳转
+        activityLife.currentActivity().startActivity(intent);
+    }
 
+    //获取Class
+    private Class<?> getClassForActivity(String alias) {
+        //获取匹配规则
         try {
-            //获取匹配的结果
-            Class<?> cls = fireRuler.getAlias(alias);
-            if (cls == null) {
-                FireConstant.Log("FireRouter search Activity instance empty");
-                return;
-            }
-            //创建跳转
-            Intent intent = new Intent(activityLife.currentActivity(), cls);
-            //检查当前Activity是否存在
-            if (intent.resolveActivity(packageManager) == null) {
-                FireConstant.Log(cls.getCanonicalName() + " Not exist!");
-                return;
-            }
-            //设置传参
-            if (onPutExtra != null) {
-                onPutExtra.onExtra(alias, intent);
-            }
-            //跳转
-            activityLife.currentActivity().startActivity(intent);
+            return FireRuler.getActivityClass(alias.hashCode());
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            return null;
         }
     }
 
