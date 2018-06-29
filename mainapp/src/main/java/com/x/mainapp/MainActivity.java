@@ -4,19 +4,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
-import com.x.firerouter.FireRouter;
-import com.x.firerouter.onPutExtra;
-import com.x.firerouterannotation.FireRule;
+import com.x.stoveannotation.FindId;
+import com.x.stoveannotation.RouterRule;
+import com.x.stoveinject.StoveInject;
+import com.x.stoverouter.StoveRouter;
+import com.x.stoverouter.onPutExtra;
 
-@FireRule(alias = "Main")
+@RouterRule(alias = "Main")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, onPutExtra {
+
+    @FindId(R.id.tv_main)
+    TextView btn_clock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.tv_main).setOnClickListener(this);
+
+        StoveInject.bind(this);
+
+        btn_clock.setOnClickListener(this);
 
     }
 
@@ -24,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_main:
-                FireRouter.startActivity("Other", this);
+                StoveRouter.startActivity("Other", this);
                 break;
         }
     }

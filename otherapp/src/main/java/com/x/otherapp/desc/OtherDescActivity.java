@@ -2,8 +2,9 @@ package com.x.otherapp.desc;
 
 import android.support.v7.app.AppCompatActivity;
 
-import com.x.firerouterannotation.FireRule;
+import com.x.stoveannotation.RouterRule;
 
-@FireRule(alias = "OtherDescActivity")
+
+@RouterRule(alias = "OtherDescActivity")
 public class OtherDescActivity extends AppCompatActivity {
 }

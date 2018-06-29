@@ -1,17 +1,13 @@
 package com.x.otherapp;
 
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.x.firerouterannotation.FireRule;
+import com.x.stoveannotation.RouterRule;
 
-import java.util.List;
 
-@FireRule(alias = "Other")
+@RouterRule(alias = "Other")
 public class OtherMainActivity extends AppCompatActivity {
 
     @Override
