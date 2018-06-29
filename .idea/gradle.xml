@@ -8,12 +8,13 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/firerouter" />
-            <option value="$PROJECT_DIR$/firerouterannotation" />
-            <option value="$PROJECT_DIR$/firerouterprocessor" />
             <option value="$PROJECT_DIR$/mainapp" />
             <option value="$PROJECT_DIR$/otherapp" />
             <option value="$PROJECT_DIR$/stove" />
+            <option value="$PROJECT_DIR$/stoveannotation" />
+            <option value="$PROJECT_DIR$/stoveinject" />
+            <option value="$PROJECT_DIR$/stoveprocessor" />
+            <option value="$PROJECT_DIR$/stoverouter" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

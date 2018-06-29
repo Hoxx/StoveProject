@@ -1,1 +1,1 @@
-include ':stove', ':firerouter', ':otherapp', ':firerouterprocessor', ':firerouterannotation', ':mainapp'
+include ':stove', ':otherapp', ':mainapp', ':stoveprocessor', ':stoveannotation', ':stoverouter', ':stoveinject'
