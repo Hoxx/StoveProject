@@ -14,18 +14,18 @@ public class StoveInject {
         bind(fragment, fragment.getView());
     }
 
-
     private static void bind(Object host, Object object) {
 
         try {
-            Class<?> aClass = host.getClass();
+            Class<?> clz = host.getClass();
 
-            String proxyClassFullName = aClass.getName() + "$$StoveInject";
+            String clzFullName = clz.getCanonicalName().replace(".", "") + "$$StoveInject";
 
-            Log.e("TAG", "proxyClassFullName:" + proxyClassFullName);
-            Class<?> proxyClass = Class.forName(proxyClassFullName);
+            Log.e("TAG", "proxyClassFullName:" + clzFullName);
 
-            StoveFindIdInterface findIdInterface = (StoveFindIdInterface) proxyClass.newInstance();
+            Class<?> proxyClass = Class.forName(clzFullName);
+
+            StoveFindIdInterface<Object> findIdInterface = (StoveFindIdInterface) proxyClass.newInstance();
             Log.e("TAG", "xapInterface != null:" + (findIdInterface != null));
             if (findIdInterface != null)
                 findIdInterface.findViewById(host, object);

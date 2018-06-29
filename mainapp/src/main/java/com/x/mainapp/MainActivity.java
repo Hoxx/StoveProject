@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
 
 import com.x.stoveannotation.FindId;
 import com.x.stoveannotation.RouterRule;
@@ -15,8 +15,8 @@ import com.x.stoverouter.onPutExtra;
 @RouterRule(alias = "Main")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, onPutExtra {
 
-    @FindId(R.id.tv_main)
-    TextView btn_clock;
+    @FindId(R.id.btn_main)
+    public Button btn_main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +25,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         StoveInject.bind(this);
 
-        btn_clock.setOnClickListener(this);
+        btn_main.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.tv_main:
+            case R.id.btn_main:
                 StoveRouter.startActivity("Other", this);
                 break;
         }
