@@ -3,29 +3,43 @@ package com.x.stoverouter;
 import android.app.Activity;
 import android.os.Bundle;
 
+import java.lang.ref.WeakReference;
+
 public class StoveLifeCallback implements StoveActivityLife {
 
-    private Activity resumedActivity;
+    private WeakReference<Activity> weakReference;
 
     StoveLifeCallback() {
     }
 
+
     @Override
-    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+    public void onActivityResumed(Activity activity) {
+        if (weakReference == null) {
+            weakReference = new WeakReference<>(activity);
+        }
+    }
+
+
+    @Override
+    public Activity resumedActivity() {
+        return weakReference.get();
+    }
+
+    @Override
+    public Activity currentActivity() {
+        return resumedActivity();
+    }
+
+
+    @Override
+    public void onActivityCreated(Activity activity, Bundle bundle) {
 
     }
 
     @Override
     public void onActivityStarted(Activity activity) {
 
-    }
-
-    @Override
-    public void onActivityResumed(Activity activity) {
-        if (resumedActivity != null) {
-            resumedActivity = null;
-        }
-        resumedActivity = activity;
     }
 
     @Override
@@ -39,22 +53,12 @@ public class StoveLifeCallback implements StoveActivityLife {
     }
 
     @Override
-    public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
 
     }
 
     @Override
     public void onActivityDestroyed(Activity activity) {
 
-    }
-
-    @Override
-    public Activity resumedActivity() {
-        return resumedActivity;
-    }
-
-    @Override
-    public Activity currentActivity() {
-        return resumedActivity();
     }
 }
