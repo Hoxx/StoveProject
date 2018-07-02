@@ -2,33 +2,36 @@ package com.x.stoveinject;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+
+import com.x.stoveannotation.StoveConstant;
 
 public class StoveInject {
 
     public static void bind(Activity activity) {
-        bind(activity, activity);
+        bindView(activity);
     }
 
     public static void bind(Fragment fragment) {
-        bind(fragment, fragment.getView());
+        bindView(fragment);
     }
 
-    private static void bind(Object host, Object object) {
+    private static void bindView(Object host) {
 
         try {
-            Class<?> clz = host.getClass();
+            Class<?> hostClass = host.getClass();
 
-            String clzFullName = clz.getCanonicalName().replace(".", "") + "$$StoveInject";
+            String generateClassFullName = StoveConstant.FindIdGenerateFilePackageName +
+                    "." +
+                    hostClass.getCanonicalName().replace(".", "") +
+                    StoveConstant.FindIdGenerateFileName;
 
-            Log.e("TAG", "proxyClassFullName:" + clzFullName);
+            Class<StoveFindIdInterface<Object>> generateClass = (Class<StoveFindIdInterface<Object>>) Class.forName(generateClassFullName);
 
-            Class<?> proxyClass = Class.forName(clzFullName);
+            StoveFindIdInterface<Object> findIdInterface = generateClass.newInstance();
 
-            StoveFindIdInterface<Object> findIdInterface = (StoveFindIdInterface) proxyClass.newInstance();
-            Log.e("TAG", "xapInterface != null:" + (findIdInterface != null));
             if (findIdInterface != null)
-                findIdInterface.findViewById(host, object);
+                findIdInterface.findViewById(host);
+
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
