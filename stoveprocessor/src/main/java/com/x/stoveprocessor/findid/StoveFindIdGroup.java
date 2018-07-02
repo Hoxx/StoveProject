@@ -6,6 +6,7 @@ import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.ParameterizedTypeName;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
+import com.x.stoveannotation.StoveConstant;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,12 +18,6 @@ public class StoveFindIdGroup {
 
     private Map<Integer, StoveFindIdView> findIdViewMap = new HashMap<>();
     private TypeName classTypeName;
-
-    private final static String interfacePackageName = "com.x.stoveinject";
-    private final static String interfaceName = "StoveFindIdInterface";
-
-    private final static String generateFileName = "$$StoveInject";
-    private final static String generateFilePackageName = "com.x.stoveinject.generate";
 
     public StoveFindIdGroup(TypeName classTypeName) {
         this.classTypeName = classTypeName;
@@ -48,25 +43,23 @@ public class StoveFindIdGroup {
 
         for (Map.Entry<Integer, StoveFindIdView> entry : findIdViewMap.entrySet()) {
             if (entry.getValue().isFragment()) {
-                methodSpec.addParameter(ClassName.get("android.view", "View"), "source");
-                methodSpec.addStatement("host.$N = ($T)source.findViewById($L)",
+                methodSpec.addStatement("host.$N = ($T)host.getView().findViewById($L)",
                         entry.getValue().getViewName(),
                         entry.getValue().getViewTypeName(),
                         entry.getKey());
             } else {
-                methodSpec.addParameter(TypeName.OBJECT, "source");
                 methodSpec.addStatement("host.$N = ($T)host.findViewById($L)",
                         entry.getValue().getViewName(),
                         entry.getValue().getViewTypeName(),
                         entry.getKey());
             }
         }
-        TypeSpec typeSpec = TypeSpec.classBuilder(classTypeName.toString().replace(".", "") + generateFileName)
+        TypeSpec typeSpec = TypeSpec.classBuilder(classTypeName.toString().replace(".", "") + StoveConstant.FindIdGenerateFileName)
                 .addModifiers(Modifier.PUBLIC)
-                .addSuperinterface(ParameterizedTypeName.get(ClassName.get(interfacePackageName, interfaceName), classTypeName))
+                .addSuperinterface(ParameterizedTypeName.get(ClassName.get(StoveConstant.FindIdInterfacePackageName, StoveConstant.FindIdInterfaceName), classTypeName))
                 .addMethod(methodSpec.build())
                 .build();
-        return JavaFile.builder(generateFilePackageName, typeSpec).build();
+        return JavaFile.builder(StoveConstant.FindIdGenerateFilePackageName, typeSpec).build();
     }
 
 }

@@ -8,6 +8,7 @@ import com.squareup.javapoet.ParameterizedTypeName;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 import com.x.stoveannotation.RouterRule;
+import com.x.stoveannotation.StoveConstant;
 
 import java.io.IOException;
 import java.util.Map;
@@ -19,12 +20,6 @@ import javax.lang.model.element.Modifier;
 import javax.tools.Diagnostic;
 
 public class FireRouterFiler {
-
-    private final static String interfacePackageName = "com.x.stoverouter";
-    private final static String interfaceName = "StoveRuleInterface";
-
-    private final static String generateFileName = "$$StoveRouterRule";
-    private final static String generateFilePackageName = "com.x.stoverouter.generate";
 
     /* 生成代码:样式
     * public class $$FireRuler + PackageName implements StoveRuleInterface {
@@ -62,13 +57,13 @@ public class FireRouterFiler {
         printNodeMessage(messager, "Create MethodSpec end!");
         //创建类
         printNodeMessage(messager, "Create Class!");
-        TypeSpec typeSpec = TypeSpec.classBuilder(generateFileName + javaFileName.replace(".", ""))
+        TypeSpec typeSpec = TypeSpec.classBuilder(StoveConstant.RouterGenerateFileName + javaFileName.replace(".", ""))
                 .addModifiers(Modifier.PUBLIC)
-                .addSuperinterface(ClassName.get(interfacePackageName, interfaceName))
+                .addSuperinterface(ClassName.get(StoveConstant.RouterInterfacePackageName, StoveConstant.RouterInterfaceName))
                 .addMethod(methodBuilder.build())
                 .build();
         //输入包名，与Class的参数，返回生成代码的Filer
-        JavaFile javaFile = JavaFile.builder(generateFilePackageName, typeSpec).build();
+        JavaFile javaFile = JavaFile.builder(StoveConstant.RouterGenerateFilePackageName, typeSpec).build();
 
         try {
             printNodeMessage(messager, "write code!");
