@@ -1,15 +1,13 @@
 package com.x.mainapp;
 
-import android.app.Application;
-
+import com.x.stove.StoveApplication;
 import com.x.stoverouter.StoveRouter;
 
 
-public class App extends Application {
+public class App extends StoveApplication {
 
     @Override
-    public void onCreate() {
-        super.onCreate();
+    public void initialize() {
         StoveRouter.initialize(this, true);
     }
 
