@@ -25,3 +25,23 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+
+    stoveVersion = [
+            minSdkVersion : 14,
+            targetSdkVersion : 26,
+            compileSdkVersion : 26,
+            buildToolsVersion : "26.0.3",
+
+            supportLibraryVersion : "26.1.0"
+    ]
+    // SDK And Tools
+    minSdkVersion = 14
+    targetSdkVersion = 26
+    compileSdkVersion = 26
+    buildToolsVersion = "26.0.3"
+
+    //Dependencies
+    supportLibraryVersion = "26.1.0"
+}

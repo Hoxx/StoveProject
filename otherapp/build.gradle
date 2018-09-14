@@ -6,7 +6,7 @@ if (isModuleDevelop.toBoolean()){
 
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 26
 
 
 
@@ -15,7 +15,7 @@ android {
             applicationId "com.x.otherapp"
         }
         minSdkVersion 14
-        targetSdkVersion 27
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
@@ -46,7 +46,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

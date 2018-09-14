@@ -80,7 +80,11 @@ public class StoveRouter {
         //获取匹配的结果
         Class<?> cls = getClassForActivity(alias);
         if (cls == null) {
-            StoveConstant.Log("StoveRouter search Activity instance empty");
+            StoveConstant.Log("StoveRouter search Activity instance is empty");
+            return;
+        }
+        if (activityLife.currentActivity()==null){
+            StoveConstant.Log("StoveRouter current Activity instance is empty");
             return;
         }
         //创建跳转

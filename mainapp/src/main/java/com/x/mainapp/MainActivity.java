@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_main:
-                StoveRouter.startActivity("Other", this);
+                StoveRouter.startActivity("InfoActivity", this);
                 break;
         }
     }
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onExtra(String alias, Intent intent) {
         switch (alias) {
-            case "OtherActivity":
+            case "InfoActivity":
                 intent.putExtra("SDATA", "测试数据传输");
                 break;
         }

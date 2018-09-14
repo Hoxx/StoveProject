@@ -3,6 +3,7 @@ package com.x.stoverouter;
 import android.app.Activity;
 import android.os.Bundle;
 
+import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 
 public class StoveLifeCallback implements StoveActivityLife {
@@ -15,9 +16,7 @@ public class StoveLifeCallback implements StoveActivityLife {
 
     @Override
     public void onActivityResumed(Activity activity) {
-        if (weakReference == null) {
-            weakReference = new WeakReference<>(activity);
-        }
+        weakReference = new WeakReference<>(activity);
     }
 
 
