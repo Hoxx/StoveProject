@@ -28,7 +28,7 @@ public class OtherDescActivity extends AppCompatActivity {
         btn_desc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StoveRouter.startActivity("Other");
+                StoveRouter.startActivity(OtherDescActivity.this,"Other");
             }
         });
     }
