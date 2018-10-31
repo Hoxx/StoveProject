@@ -77,10 +77,6 @@ public class StoveRouter {
             StoveConstant.Log("StoveRouter search Activity instance is empty");
             return;
         }
-        if (activityLife.currentActivity()==null){
-            StoveConstant.Log("StoveRouter current Activity instance is empty");
-            return;
-        }
         //创建跳转
         Intent intent = new Intent(activity, cls);
         //检查当前Activity是否存在
