@@ -11,7 +11,7 @@ public class App extends StoveApplication {
     public void initialize() {
         StoveRouter.initialize(this, true);
 
-        ScreenAdaptation.init(this, 720);
+//        ScreenAdaptation.init(this, 360);
 
     }
 

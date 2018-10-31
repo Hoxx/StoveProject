@@ -1,17 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <Button
         android:id="@+id/btn_main"
-        android:layout_width="700dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryDark"
         android:gravity="center"
-        android:text="MainAppActivity"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp" />
+        android:text="MainActivity-100dp"/>
 
-</FrameLayout>
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="200dp"/>
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="300dp"/>
+
+    <TextView
+        android:layout_width="359dp"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="359dp"/>
+
+    <TextView
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="360dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="match_parent"/>
+</LinearLayout>
