@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_main:
-                StoveRouter.startActivity("InfoActivity", this);
+                StoveRouter.startActivity(this, "Other", this);
                 break;
         }
     }
