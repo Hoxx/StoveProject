@@ -1,6 +1,5 @@
 package com.x.mainapp;
 
-import com.x.stove.ScreenAdaptation;
 import com.x.stove.StoveApplication;
 import com.x.stoverouter.StoveRouter;
 

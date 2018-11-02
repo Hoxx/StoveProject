@@ -1,4 +1,4 @@
-package com.x.stove;
+package com.x.stove.screen;
 
 import android.app.Activity;
 import android.app.Application;
