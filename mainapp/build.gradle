@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion stoveVersion.compileSdkVersion
 
 
 
     defaultConfig {
         applicationId "com.x.mainapp"
-        minSdkVersion 14
-        targetSdkVersion 26
+        minSdkVersion stoveVersion.minSdkVersion
+        targetSdkVersion stoveVersion.targetSdkVersion
         versionCode 1
         versionName "1.0"
 

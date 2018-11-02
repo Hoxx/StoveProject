@@ -6,7 +6,7 @@ if (isModuleDevelop.toBoolean()){
 
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion stoveVersion.compileSdkVersion
 
 
 
@@ -14,8 +14,8 @@ android {
         if (isModuleDevelop.toBoolean()){
             applicationId "com.x.otherapp"
         }
-        minSdkVersion 14
-        targetSdkVersion 26
+        minSdkVersion stoveVersion.minSdkVersion
+        targetSdkVersion stoveVersion.targetSdkVersion
         versionCode 1
         versionName "1.0"
 

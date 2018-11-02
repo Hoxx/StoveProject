@@ -8,6 +8,7 @@ import android.graphics.SurfaceTexture;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
@@ -107,29 +108,6 @@ public abstract class BaseVideoView extends FrameLayout implements TextureView.S
         return size;
     }
 
-    public void setViewHideControl() {
-        if (controlView != null) {
-            controlView.animate().alpha(0f).setDuration(500).start();
-        }
-    }
-
-    public void setViewShowControl() {
-        if (controlView != null) {
-            controlView.animate().alpha(1f).setDuration(500).start();
-        }
-        //正在播放视频，5秒后自动隐藏控制器View
-        if (mVideoViewAction != null && mVideoViewAction.videoIsPlaying()) {
-            postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if (mVideoViewAction != null && mVideoViewAction.videoIsPlaying()) {
-                        setViewHideControl();
-                    }
-                }
-            }, 5000);
-        }
-    }
-
     /**
      * 全屏
      */
@@ -181,6 +159,57 @@ public abstract class BaseVideoView extends FrameLayout implements TextureView.S
             isFullScreen = false;
         }
     }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+
+                break;
+            case MotionEvent.ACTION_UP:
+                if (controlView != null) {
+                    if (controlView.getAlpha() < 1f) {
+                        setViewShowControl();
+                    } else {
+                        setViewHideControl();
+                    }
+                }
+                break;
+        }
+        return true;
+    }
+
+    public void setViewHideControl() {
+        if (controlView != null) {
+            controlView.animate().alpha(0f).setDuration(500).withEndAction(new Runnable() {
+                @Override
+                public void run() {
+                    controlView.setVisibility(GONE);
+                }
+            }).start();
+        }
+    }
+
+    public void setViewShowControl() {
+        if (controlView != null) {
+            controlView.setVisibility(VISIBLE);
+            controlView.animate().alpha(1f).setDuration(500).start();
+        }
+        //正在播放视频，5秒后自动隐藏控制器View
+        if (mVideoViewAction != null && mVideoViewAction.videoIsPlaying()) {
+            removeCallbacks(delayHideControl);
+            postDelayed(delayHideControl, 5000);
+        }
+    }
+
+    private Runnable delayHideControl = new Runnable() {
+        @Override
+        public void run() {
+            if (mVideoViewAction != null && mVideoViewAction.videoIsPlaying()) {
+                setViewHideControl();
+            }
+        }
+    };
 
     public void setOnViewAction(OnVideoViewAction action) {
         this.mVideoViewAction = action;

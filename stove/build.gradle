@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion stoveVersion.compileSdkVersion
 
 
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 26
+        minSdkVersion stoveVersion.minSdkVersion
+        targetSdkVersion stoveVersion.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
