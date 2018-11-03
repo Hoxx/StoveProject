@@ -1,22 +1,36 @@
 package com.x.stove.video;
 
 import android.content.Context;
-import android.graphics.SurfaceTexture;
 import android.util.AttributeSet;
-import android.view.Surface;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.SeekBar;
 
-import com.x.stove.R;
+import com.meta.xyx.R;
 
 /**
  * @author Houxingxiu
  * Date : 2018/11/1
  */
-public class XVideoView extends BaseVideoView {
+public class XVideoView extends BaseVideoView implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
 
-    private int[] screenSize;
+    private int[] currentViewSize;
     private int[] videoSize;
+
+    private FrameLayout video_control;
+    private ImageView   video_voice;
+    private ImageView   video_play;
+    private ProgressBar video_progress;
+    private ImageView   video_full_screen;
+    private SeekBar     video_seek;
+
+    private boolean seekVideoFromUser;
+    private long    seekVideoFromUserProgress;
 
     public XVideoView(Context context) {
         super(context);
@@ -32,108 +46,165 @@ public class XVideoView extends BaseVideoView {
 
     @Override
     void initialize() {
-        screenSize = new int[2];
-        screenSize[0] = getResources().getDisplayMetrics().widthPixels;
-        screenSize[1] = getResources().getDisplayMetrics().heightPixels;
+        currentViewSize = new int[2];
 
-        findControlView(R.id.tv_screen).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setFullScreen(videoSize[0], videoSize[1]);
-            }
-        });
-        findControlView(R.id.tv_back).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setSmallScreen();
-            }
-        });
-
+//        View rootView = LayoutInflater.from(getContext()).inflate(R.layout.video_view_control, this, false);
+//
+//        video_control = rootView.findViewById(R.id.video_control);
+//        video_voice = rootView.findViewById(R.id.video_voice);
+//        video_play = rootView.findViewById(R.id.video_play);
+//        video_progress = rootView.findViewById(R.id.video_progress);
+//        video_full_screen = rootView.findViewById(R.id.video_full_screen);
+//        video_seek = rootView.findViewById(R.id.video_seek);
+//
+//        video_voice.setOnClickListener(this);
+//        video_play.setOnClickListener(this);
+//        video_full_screen.setOnClickListener(this);
+//
+//        video_seek.setOnSeekBarChangeListener(this);
+//
+//        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+//        params.gravity = Gravity.CENTER;
+//        addView(rootView, params);
     }
 
     @Override
-    public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
-        if (mVideoViewAction != null) {
-            mVideoViewAction.onViewAvailable(new Surface(surface));
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.video_full_screen:
+                if (isFullScreen()) {
+                    setSmallScreen();
+                    video_full_screen.setImageResource(R.drawable.item_video_full_screen);
+                } else {
+                    setFullScreen(videoSize[0], videoSize[1]);
+                    video_full_screen.setImageResource(R.drawable.full_screen_videosmall_screen);
+                }
+                break;
+            case R.id.video_voice:
+                if (mVideoViewAction != null) {
+                    if (mVideoViewAction.videoIsMute()) {
+                        mVideoViewAction.onVideoAudioRestore();
+                    } else {
+                        mVideoViewAction.onVideoAudioMute();
+                    }
+                }
+                break;
+            case R.id.video_play:
+                if (mVideoViewAction != null) {
+                    if (mVideoViewAction.videoIsPlaying()) {
+                        mVideoViewAction.onVideoPause();
+                    } else {
+                        mVideoViewAction.onVideoPlay();
+                    }
+                }
+                break;
         }
     }
 
     @Override
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        seekVideoFromUser = fromUser;
+        seekVideoFromUserProgress = progress;
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
 
     }
 
     @Override
-    public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
-        if (mVideoViewAction != null) {
-            mVideoViewAction.onViewDestroyed();
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        if (seekVideoFromUser && mVideoViewAction != null) {
+            mVideoViewAction.onVideoSeekTo(seekVideoFromUserProgress);
         }
-        return false;
     }
 
     @Override
-    public void onSurfaceTextureUpdated(SurfaceTexture surface) {
-
-    }
-
-    @Override
-    int controlViewLayout() {
-        return R.layout.video_control;
+    View controlView() {
+        return video_control;
     }
 
     @Override
     public void setVideoPlay() {
-
+        if (isFullScreen()) {
+            video_play.setImageResource(R.drawable.full_screen_video_play);
+        } else {
+            video_play.setImageResource(R.drawable.item_video_play);
+        }
     }
 
     @Override
     public void setVideoPause() {
-
+        if (isFullScreen()) {
+            video_play.setImageResource(R.drawable.full_screen_video_pause);
+        } else {
+            video_play.setImageResource(R.drawable.item_video_pause);
+        }
     }
 
     @Override
     public void setVideoPlayComplete() {
-
+        setVideoPlay();
+        setViewShowControl();
     }
 
     @Override
     public void setVideoPlayError() {
-
+        setVideoPlay();
+        setViewShowControl();
     }
 
     @Override
     public void setViewShowLoading() {
-
+        video_progress.setVisibility(VISIBLE);
     }
 
     @Override
     public void setViewHideLoading() {
-
+        video_progress.setVisibility(GONE);
     }
 
     @Override
     public void setViewAudioMute() {
-
+        video_voice.setImageResource(R.drawable.full_screen_video_off_voice);
     }
 
     @Override
     public void setViewAudioRestore() {
-
+        video_voice.setImageResource(R.drawable.full_screen_video_on_voice);
     }
 
     @Override
     public void setViewSeekBar(long max, long progress) {
-        VLog.D(this, "setViewSeekBar", "max--" + max + "--progress--" + progress);
+        video_seek.setMax((int) max);
+        video_seek.setProgress((int) progress);
     }
 
     @Override
     public void setViewSize(int videoWidth, int videoHeight) {
-        VLog.D(this, "setViewSize", "videoWidth--" + videoWidth + "--videoHeight--" + videoHeight);
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        videoSize = scaleVideoSize(videoWidth, videoHeight, screenSize[0], screenSize[1]);
+        videoSize = scaleVideoSize(videoWidth, videoHeight, currentViewSize[0], currentViewSize[1]);
+        //        if (videoWidth > videoHeight) {
+        //            videoSize = scaleVideoSize(videoWidth, videoHeight, currentViewSize[0], currentViewSize[1]);
+        //        } else {
+        //            if (videoSize == null) {
+        //                videoSize = new int[2];
+        //            }
+        //            videoSize[0] = currentViewSize[1];
+        //            videoSize[1] = currentViewSize[1];
+        //        }
         layoutParams.width = videoSize[0];
         layoutParams.height = videoSize[1];
         setLayoutParams(layoutParams);
+        if (mOnVideoSizeChange != null) {
+            mOnVideoSizeChange.onSizeChange(videoSize[0], videoSize[1]);
+        }
     }
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        currentViewSize[0] = getMeasuredWidth();
+        currentViewSize[1] = getMeasuredHeight();
+    }
 }

@@ -1,6 +1,9 @@
 package com.x.stove.video;
 
+import android.text.TextUtils;
 import android.view.Surface;
+
+import com.meta.xyx.utils.LogUtil;
 
 import java.io.IOException;
 
@@ -16,10 +19,14 @@ public class XVideoPlayer implements XBaseVideoPlayer, IMediaPlayer.OnPreparedLi
 
     private IMediaPlayer                         mIMediaPlayer;
     private XBaseVideoPlayer.OnVideoPlayerAction mOnVideoPlayerAction;
+    //是否设置新的播放地址
+    private boolean                              hasNewVideoUrl;
     //是否准备完成自动播放
     private boolean                              prepareAndPlay;
     //当前播放视频的时间总长度
     private long                                 videoDuration;
+    //是否静音
+    private boolean                              isMute;
 
     public XVideoPlayer() {
         initMediaPlayer();
@@ -32,7 +39,6 @@ public class XVideoPlayer implements XBaseVideoPlayer, IMediaPlayer.OnPreparedLi
     private void initMediaPlayer() {
         if (mIMediaPlayer == null) {
             mIMediaPlayer = new IjkMediaPlayer();
-            mIMediaPlayer.setScreenOnWhilePlaying(true);
             mIMediaPlayer.setOnPreparedListener(this);
             mIMediaPlayer.setOnVideoSizeChangedListener(this);
             mIMediaPlayer.setOnCompletionListener(this);
@@ -45,19 +51,41 @@ public class XVideoPlayer implements XBaseVideoPlayer, IMediaPlayer.OnPreparedLi
 
     @Override
     public void prepare() {
-        this.prepareAndPlay = false;
-        mIMediaPlayer.prepareAsync();
+        if (hasNewVideoUrl) {
+            this.prepareAndPlay = false;
+            mIMediaPlayer.prepareAsync();
+            hasNewVideoUrl = false;
+        }
     }
 
     @Override
     public void prepareAndPlay() {
-        this.prepareAndPlay = true;
-        mIMediaPlayer.prepareAsync();
+        if (hasNewVideoUrl) {
+            this.prepareAndPlay = true;
+            mIMediaPlayer.prepareAsync();
+            hasNewVideoUrl = false;
+        }
     }
 
     @Override
     public void setVideoData(String url) {
+        LogUtil.e("HXX-TAG-----设置的视频地址:" + url);
         try {
+            if (TextUtils.isEmpty(url)) {
+                LogUtil.s("HXX-TAG-----当前设置的视频地址为空");
+                return;
+            }
+            String videoUrl = mIMediaPlayer.getDataSource();
+            if (!TextUtils.isEmpty(videoUrl)) {
+                if (TextUtils.equals(videoUrl, url)) {
+                    LogUtil.s("HXX-TAG-----当前设置的视频地址重复");
+                    return;
+                } else {
+//                    mIMediaPlayer.stop();
+//                    mIMediaPlayer.reset();
+                }
+            }
+            hasNewVideoUrl = true;
             mIMediaPlayer.setDataSource(url);
         } catch (IOException e) {
             e.printStackTrace();
@@ -81,12 +109,25 @@ public class XVideoPlayer implements XBaseVideoPlayer, IMediaPlayer.OnPreparedLi
 
     @Override
     public void setVideoStop() {
+        mIMediaPlayer.stop();
+    }
 
+    @Override
+    public void setVideoReset() {
+        setVideoStop();
+        mIMediaPlayer.reset();
+    }
+
+    @Override
+    public void setVideoRelease() {
+        setVideoReset();
+        mIMediaPlayer.release();
     }
 
     @Override
     public void setVideoAudioMute() {
         mIMediaPlayer.setVolume(0f, 0f);
+        isMute = true;
         if (mOnVideoPlayerAction != null) {
             mOnVideoPlayerAction.onVideoAudioMute();
         }
@@ -95,6 +136,7 @@ public class XVideoPlayer implements XBaseVideoPlayer, IMediaPlayer.OnPreparedLi
     @Override
     public void setVideoAudioRestore() {
         mIMediaPlayer.setVolume(1f, 1f);
+        isMute = false;
         if (mOnVideoPlayerAction != null) {
             mOnVideoPlayerAction.onVideoAudioRestore();
         }
@@ -116,6 +158,11 @@ public class XVideoPlayer implements XBaseVideoPlayer, IMediaPlayer.OnPreparedLi
     @Override
     public boolean getVideoIsPlaying() {
         return mIMediaPlayer.isPlaying();
+    }
+
+    @Override
+    public boolean getVideoIsMute() {
+        return isMute;
     }
 
     //第三方播放器回调-----以下
@@ -168,6 +215,9 @@ public class XVideoPlayer implements XBaseVideoPlayer, IMediaPlayer.OnPreparedLi
 
     @Override
     public boolean onError(IMediaPlayer iMediaPlayer, int i, int i1) {
+        if (LogUtil.isLog()) {
+            LogUtil.s(this, "onError-i", i);
+        }
         if (mOnVideoPlayerAction != null) {
             mOnVideoPlayerAction.onVideoPlayError();
         }
@@ -176,14 +226,16 @@ public class XVideoPlayer implements XBaseVideoPlayer, IMediaPlayer.OnPreparedLi
 
     @Override
     public boolean onInfo(IMediaPlayer iMediaPlayer, int i, int i1) {
-        VLog.D(this, "onInfo-i", i);
-        VLog.D(this, "onInfo-i1", i1);
-        VLog.D(this, "onInfo-i", i == IMediaPlayer.MEDIA_INFO_VIDEO_SEEK_RENDERING_START ? "媒体信息视频寻求渲染开始" : "");
-        VLog.D(this, "onInfo-i", i == IMediaPlayer.MEDIA_INFO_AUDIO_SEEK_RENDERING_START ? "媒体信息音频寻求渲染开始" : "");
-        VLog.D(this, "onInfo-i", i == IMediaPlayer.MEDIA_INFO_MEDIA_ACCURATE_SEEK_COMPLETE ? "媒体信息媒体准确的搜索完整" : "");
-        VLog.D(this, "onInfo-i1", i1 == IMediaPlayer.MEDIA_INFO_VIDEO_SEEK_RENDERING_START ? "媒体信息视频寻求渲染开始" : "");
-        VLog.D(this, "onInfo-i1", i1 == IMediaPlayer.MEDIA_INFO_AUDIO_SEEK_RENDERING_START ? "媒体信息音频寻求渲染开始" : "");
-        VLog.D(this, "onInfo-i1", i1 == IMediaPlayer.MEDIA_INFO_MEDIA_ACCURATE_SEEK_COMPLETE ? "媒体信息媒体准确的搜索完整" : "");
+        if (LogUtil.isLog()) {
+            LogUtil.s(this, "onInfo-i", i);
+            LogUtil.s(this, "onInfo-i1", i1);
+            LogUtil.s(this, "onInfo-i", i == IMediaPlayer.MEDIA_INFO_VIDEO_SEEK_RENDERING_START ? "媒体信息视频寻求渲染开始" : "");
+            LogUtil.s(this, "onInfo-i", i == IMediaPlayer.MEDIA_INFO_AUDIO_SEEK_RENDERING_START ? "媒体信息音频寻求渲染开始" : "");
+            LogUtil.s(this, "onInfo-i", i == IMediaPlayer.MEDIA_INFO_MEDIA_ACCURATE_SEEK_COMPLETE ? "媒体信息媒体准确的搜索完整" : "");
+            LogUtil.s(this, "onInfo-i1", i1 == IMediaPlayer.MEDIA_INFO_VIDEO_SEEK_RENDERING_START ? "媒体信息视频寻求渲染开始" : "");
+            LogUtil.s(this, "onInfo-i1", i1 == IMediaPlayer.MEDIA_INFO_AUDIO_SEEK_RENDERING_START ? "媒体信息音频寻求渲染开始" : "");
+            LogUtil.s(this, "onInfo-i1", i1 == IMediaPlayer.MEDIA_INFO_MEDIA_ACCURATE_SEEK_COMPLETE ? "媒体信息媒体准确的搜索完整" : "");
+        }
         return false;
     }
 

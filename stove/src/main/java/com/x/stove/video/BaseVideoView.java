@@ -5,9 +5,10 @@ import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.SurfaceTexture;
+import android.os.Build;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.TextureView;
@@ -23,10 +24,11 @@ import android.widget.FrameLayout;
 public abstract class BaseVideoView extends FrameLayout implements TextureView.SurfaceTextureListener {
 
     protected OnVideoViewAction mVideoViewAction;
-    private   View              controlView;
+    protected OnVideoSizeChange mOnVideoSizeChange;
     private   int[]             screenSize;
     private   int[]             videoSize;
     private   ViewGroup         oldParent;
+    private   int               oldSystemUiVisibility;
     private   boolean           isFullScreen;
 
     public BaseVideoView(Context context) {
@@ -43,29 +45,36 @@ public abstract class BaseVideoView extends FrameLayout implements TextureView.S
     }
 
     private void init() {
-        screenSize = new int[2];
-        screenSize[0] = getResources().getDisplayMetrics().widthPixels;
-        screenSize[1] = getResources().getDisplayMetrics().heightPixels;
-
-        FrameLayout.LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+        initScreenSize();
+        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         params.gravity = Gravity.CENTER;
         //创建显示视频的View
         TextureView textureView = new TextureView(getContext());
         textureView.setSurfaceTextureListener(this);
         addView(textureView, params);
-        //创建显示控制器的View
-        if (controlViewLayout() != 0) {
-            controlView = LayoutInflater.from(getContext()).inflate(controlViewLayout(), this, false);
-            addView(controlView, params);
-        }
         initialize();
     }
 
-    protected <T extends View> T findControlView(int viewResId) {
-        if (controlView != null) {
-            return controlView.findViewById(viewResId);
+    /**
+     * 获取屏幕尺寸
+     */
+    private void initScreenSize() {
+        if (screenSize == null) {
+            screenSize = new int[2];
         }
-        return null;
+        DisplayMetrics dm = new DisplayMetrics();
+        WindowManager windowMgr = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
+        if (windowMgr != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                windowMgr.getDefaultDisplay().getRealMetrics(dm);
+            } else {
+                windowMgr.getDefaultDisplay().getMetrics(dm);
+            }
+        }
+        // 获取宽度
+        screenSize[0] = dm.widthPixels;
+        // 获取高度
+        screenSize[1] = dm.heightPixels;
     }
 
     @Override
@@ -93,6 +102,15 @@ public abstract class BaseVideoView extends FrameLayout implements TextureView.S
 
     }
 
+    /**
+     * 计算视频缩放尺寸
+     *
+     * @param videoWidth   视频宽度
+     * @param videoHeight  视频高度
+     * @param targetWidth  目标宽度
+     * @param targetHeight 目标高度
+     * @return 计算后的宽高
+     */
     protected int[] scaleVideoSize(float videoWidth, float videoHeight, float targetWidth, float targetHeight) {
         int[] size = new int[2];
         if (targetHeight <= 0 || targetWidth <= 0) {
@@ -119,23 +137,48 @@ public abstract class BaseVideoView extends FrameLayout implements TextureView.S
             videoSize[0] = videoWidth;
             videoSize[1] = videoHeight;
             Activity activity = (Activity) getContext();
-            if (videoWidth > videoHeight) {
-                if (getContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-                    //横屏
-                    activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-                }
+            int[] size;
+            if (videoWidth > videoHeight && getContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+                //横屏
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                size = scaleVideoSize(videoWidth, videoHeight, screenSize[1], screenSize[0]);
+            } else {
+                size = scaleVideoSize(videoWidth, videoHeight, screenSize[0], screenSize[1]);
             }
             //全屏
-            activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            setActivityFullScreen(activity);
             oldParent = (ViewGroup) getParent();
             if (oldParent != null) {
                 oldParent.removeView(this);
             }
             FrameLayout decorView = (FrameLayout) activity.getWindow().getDecorView();
-            int size[] = scaleVideoSize(videoWidth, videoHeight, screenSize[1], screenSize[0]);
-            decorView.addView(this, new FrameLayout.LayoutParams(size[0], size[1]));
+            decorView.addView(this, new LayoutParams(size[0], size[1]));
             isFullScreen = true;
         }
+    }
+
+    /**
+     * 设置Activity全屏
+     */
+    private void setActivityFullScreen(Activity activity) {
+        activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //隐藏虚拟按键，并且全屏
+        oldSystemUiVisibility = activity.getWindow().getDecorView().getSystemUiVisibility();
+        int systemUiVisibility;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        } else {
+            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        }
+        activity.getWindow().getDecorView().setSystemUiVisibility(systemUiVisibility);
+    }
+
+    /**
+     * 清除全屏
+     */
+    private void clearActivityFullScreen(Activity activity) {
+        activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        activity.getWindow().getDecorView().setSystemUiVisibility(oldSystemUiVisibility);
     }
 
     /**
@@ -144,12 +187,12 @@ public abstract class BaseVideoView extends FrameLayout implements TextureView.S
     public void setSmallScreen() {
         if (getContext() instanceof Activity && isFullScreen) {
             Activity activity = (Activity) getContext();
+            //如果是横屏，切换回竖屏
             if (getContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                //竖屏
                 activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             }
             //取消全屏
-            activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            clearActivityFullScreen(activity);
             if (getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
             }
@@ -160,6 +203,17 @@ public abstract class BaseVideoView extends FrameLayout implements TextureView.S
         }
     }
 
+    /**
+     * 是否是全屏
+     */
+    public boolean isFullScreen() {
+        return isFullScreen;
+    }
+
+    public void setOnVideoSizeChange(OnVideoSizeChange onVideoSizeChange) {
+        mOnVideoSizeChange = onVideoSizeChange;
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
@@ -167,8 +221,8 @@ public abstract class BaseVideoView extends FrameLayout implements TextureView.S
 
                 break;
             case MotionEvent.ACTION_UP:
-                if (controlView != null) {
-                    if (controlView.getAlpha() < 1f) {
+                if (controlView() != null) {
+                    if (controlView().getAlpha() < 1f) {
                         setViewShowControl();
                     } else {
                         setViewHideControl();
@@ -180,20 +234,20 @@ public abstract class BaseVideoView extends FrameLayout implements TextureView.S
     }
 
     public void setViewHideControl() {
-        if (controlView != null) {
-            controlView.animate().alpha(0f).setDuration(500).withEndAction(new Runnable() {
+        if (controlView() != null) {
+            controlView().animate().alpha(0f).setDuration(500).withEndAction(new Runnable() {
                 @Override
                 public void run() {
-                    controlView.setVisibility(GONE);
+                    controlView().setVisibility(GONE);
                 }
             }).start();
         }
     }
 
     public void setViewShowControl() {
-        if (controlView != null) {
-            controlView.setVisibility(VISIBLE);
-            controlView.animate().alpha(1f).setDuration(500).start();
+        if (controlView() != null) {
+            controlView().setVisibility(VISIBLE);
+            controlView().animate().alpha(1f).setDuration(500).start();
         }
         //正在播放视频，5秒后自动隐藏控制器View
         if (mVideoViewAction != null && mVideoViewAction.videoIsPlaying()) {
@@ -217,7 +271,7 @@ public abstract class BaseVideoView extends FrameLayout implements TextureView.S
 
     abstract void initialize();
 
-    abstract int controlViewLayout();
+    abstract View controlView();
 
     abstract void setVideoPlay();
 
@@ -257,6 +311,12 @@ public abstract class BaseVideoView extends FrameLayout implements TextureView.S
 
         boolean videoIsPlaying();
 
+        boolean videoIsMute();
+
+    }
+
+    public interface OnVideoSizeChange {
+        void onSizeChange(int width, int height);
     }
 
 }

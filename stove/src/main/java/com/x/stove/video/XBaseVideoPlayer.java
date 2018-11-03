@@ -44,6 +44,16 @@ public interface XBaseVideoPlayer {
     void setVideoStop();
 
     /**
+     * 重置播放器
+     */
+    void setVideoReset();
+
+    /**
+     * 释放播放器资源
+     */
+    void setVideoRelease();
+
+    /**
      * 静音视频
      */
     void setVideoAudioMute();
@@ -67,6 +77,11 @@ public interface XBaseVideoPlayer {
      * 获取视频是否正在播放
      */
     boolean getVideoIsPlaying();
+
+    /**
+     * 获取视频是否静音
+     */
+    boolean getVideoIsMute();
 
     interface OnVideoPlayerAction {
 

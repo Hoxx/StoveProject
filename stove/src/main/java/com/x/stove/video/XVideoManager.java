@@ -29,6 +29,10 @@ public class XVideoManager {
         mVideoPlayer = new XVideoPlayer();
     }
 
+    public XBaseVideoPlayer getVideoPlayer() {
+        return mVideoPlayer;
+    }
+
     /**
      * 设置视频View
      */
@@ -128,7 +132,7 @@ public class XVideoManager {
 
             @Override
             public void onViewDestroyed() {
-
+                mVideoPlayer.setVideoReset();
             }
 
             @Override
@@ -159,6 +163,11 @@ public class XVideoManager {
             @Override
             public boolean videoIsPlaying() {
                 return mVideoPlayer.getVideoIsPlaying();
+            }
+
+            @Override
+            public boolean videoIsMute() {
+                return mVideoPlayer.getVideoIsMute();
             }
         });
     }
