@@ -8,6 +8,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/filelib" />
+            <option value="$PROJECT_DIR$/legendstd" />
             <option value="$PROJECT_DIR$/mainapp" />
             <option value="$PROJECT_DIR$/otherapp" />
             <option value="$PROJECT_DIR$/stove" />

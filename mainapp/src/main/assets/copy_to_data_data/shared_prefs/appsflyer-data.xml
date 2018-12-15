@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="imeiCached">867551037791666</string>
+    <string name="sentSuccessfully">true</string>
+    <int name="versionCode" value="14200020" />
+    <string name="savedProperties">{&quot;uid&quot;:&quot;1544520077478-6589382485962579872&quot;,&quot;appid&quot;:&quot;com.babeltimeus.legendstd&quot;,&quot;KSAppsFlyerRICounter&quot;:&quot;0&quot;,&quot;AppUserId&quot;:&quot;fbaf5204-fd26-11e8-bef6-0a76f5ced4a0&quot;,&quot;AppsFlyerKey&quot;:&quot;GhAXPpBD2MWCT4JmttYhC&quot;,&quot;advertiserId&quot;:&quot;ba1c847a-e508-5d0a-de75-23e50ab57579&quot;,&quot;advertiserIdEnabled&quot;:&quot;false&quot;,&quot;KSAppsFlyerId&quot;:&quot;1544520077478-6589382485962579872&quot;}</string>
+    <string name="androidIdCached">7a3655977c0f5436</string>
+    <string name="AF_INSTALLATION">1544520077478-6589382485962579872</string>
+    <long name="appsflyerGetConversionDataTiming" value="6" />
+    <int name="appsFlyerCount" value="112" />
+    <long name="AppsFlyerTimePassedSincePrevLaunch" value="1544850840150" />
+    <int name="appsflyerConversionDataRequestRetries" value="0" />
+    <string name="appsFlyerFirstInstall">2018-12-11_172550+0800</string>
+    <string name="attributionId">{&quot;af_status&quot;:&quot;Organic&quot;,&quot;af_message&quot;:&quot;organic install&quot;}</string>
+</map>

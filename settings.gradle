@@ -1,1 +1,1 @@
-include ':stove', ':otherapp', ':mainapp', ':stoveprocessor', ':stoveannotation', ':stoverouter', ':stoveinject'
+include ':stove', ':otherapp', ':mainapp', ':stoveprocessor', ':stoveannotation', ':stoverouter', ':stoveinject', ':filelib', ':legendstd'

@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="AFP;1.11.3">a62b25ca1703af865e378c6f06b3c664</string>
+    <string name="deviceIdHash">99a2a333-5d1f-4c56-9027-fc2585cfab11</string>
+    <int name="AppMinSdkVersion" value="16" />
+</map>

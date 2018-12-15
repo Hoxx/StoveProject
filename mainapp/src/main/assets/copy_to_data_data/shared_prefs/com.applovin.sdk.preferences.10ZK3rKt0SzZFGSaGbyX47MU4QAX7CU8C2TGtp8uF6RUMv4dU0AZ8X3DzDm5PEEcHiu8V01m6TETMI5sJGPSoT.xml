@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <set name="com.applovin.sdk.impl.postbackQueue.key" />
+    <string name="com.applovin.sdk.stats">{&quot;ad_session_start&quot;:1544848143887,&quot;SubmitData_time&quot;:44062,&quot;FetchNextAd_time&quot;:30292,&quot;TaskCollectAdvertisingId_count&quot;:17,&quot;SubmitData_count&quot;:17,&quot;cached_files_expired&quot;:1,&quot;RepeatFetchNextAd_count&quot;:1,&quot;TaskProcessAdWaterfall_count&quot;:1,&quot;TaskDispatchPostback_time&quot;:15363,&quot;TaskProcessAdWaterfall_time&quot;:0,&quot;TaskCollectAdvertisingId_time&quot;:562,&quot;FetchNextAd_count&quot;:18,&quot;ad_req&quot;:18,&quot;TaskDispatchPostback_count&quot;:17,&quot;RepeatFetchNextAd_time&quot;:1953}</string>
+    <string name="com.applovin.sdk.device_data">orientation_lock=landscape&amp;os=8.1.0&amp;adns=3.0&amp;brand_name=HONOR&amp;locale=zh_CN_%23Hans&amp;platform=android&amp;revision=HWCOL&amp;country_code=CN&amp;carrier=%25E4%25B8%25AD%25E5%259B%25BD%25E7%25A7%25BB%25E5%258A%25A8&amp;gy=true&amp;dx=2280&amp;tz_offset=8.0&amp;dy=1080&amp;sim=0&amp;model=COL-AL10&amp;adnsd=480&amp;wvvc=344009150&amp;brand=HUAWEI&amp;hardware=kirin970</string>
+    <int name="com.applovin.sdk.last_version_code" value="785" />
+</map>

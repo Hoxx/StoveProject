@@ -1,0 +1,473 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <boolean name="com.applovin.sdk.G0ns.lhs_skip_button" value="true" />
+    <boolean name="com.applovin.sdk.G0ns.vast_validate_with_extension_if_no_video_type" value="true" />
+    <string name="com.applovin.sdk.PSoT.event_tracking_backup_endpoint">https://rt.applvn.com/pix</string>
+    <int name="com.applovin.sdk.G0ns.android_click_spinner_style" value="16973853" />
+    <boolean name="com.applovin.sdk.G0ns.hw_accelerate_webviews" value="false" />
+    <string name="com.applovin.sdk.G0ns.click_overlay_color">#66000000</string>
+    <boolean name="com.applovin.sdk.PSoT.events_enabled" value="true" />
+    <int name="com.applovin.sdk.PSoT.ad_session_minutes" value="60" />
+    <boolean name="com.applovin.sdk.G0ns.dismiss_expanded_adview_on_detach" value="false" />
+    <int name="com.applovin.sdk.PSoT.extended_preload_capacity_inter_regular_indirect" value="15" />
+    <int name="com.applovin.sdk.G0ns.vast_video_selection_policy" value="2" />
+    <string name="com.applovin.sdk.PSoT.text_incent_completion_close_option">Okay</string>
+    <int name="com.applovin.sdk.PSoT.progress_bar_scale" value="10000" />
+    <boolean name="com.applovin.sdk.G0ns.adr" value="false" />
+    <int name="com.applovin.sdk.PSoT.http_connection_timeout" value="30000" />
+    <boolean name="com.applovin.sdk.PSoT.detach_update_listener_on_pause" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.network_available_if_none_detected" value="true" />
+    <string name="com.applovin.sdk.G0ns.text_incent_warning_title">Attention!</string>
+    <int name="com.applovin.sdk.PSoT.extended_preload_capacity_zone" value="15" />
+    <boolean name="com.applovin.sdk.PSoT.preload_merge_init_tasks_mrec_regular_direct" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.user_agent_collection_enabled" value="false" />
+    <int name="com.applovin.sdk.G0ns.extended_preload_capacity_leader_regular_indirect" value="15" />
+    <boolean name="com.applovin.sdk.PSoT.expandable_lhs_close_button" value="false" />
+    <string name="com.applovin.sdk.PSoT.mediation_tracking_endpoint">https://rt.applovin.com/med</string>
+    <string name="com.applovin.sdk.G0ns.api_endpoint">https://d.applovin.com/</string>
+    <boolean name="com.applovin.sdk.G0ns.validate_zone_input" value="false" />
+    <int name="com.applovin.sdk.PSoT.extended_preload_capacity_inter_videoa_indirect" value="15" />
+    <int name="com.applovin.sdk.G0ns.video_countdown_clock_gravity" value="83" />
+    <boolean name="com.applovin.sdk.G0ns.ad_refresh_enabled" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.lhs_skip_button" value="true" />
+    <int name="com.applovin.sdk.G0ns.mute_button_gravity" value="85" />
+    <int name="com.applovin.sdk.PSoT.fetch_ad_connection_timeout" value="30000" />
+    <string name="com.applovin.sdk.PSoT.text_incent_completion_body_success">You have earned a reward!</string>
+    <int name="com.applovin.sdk.PSoT.preload_capacity_zone_native" value="1" />
+    <string name="com.applovin.sdk.G0ns.device_id">10badd1d48c9a3d947</string>
+    <boolean name="com.applovin.sdk.G0ns.preload_merge_init_tasks_banner_regular_direct" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.video_callbacks_for_incent_nonvideo_ads_enabled" value="true" />
+    <string name="com.applovin.sdk.G0ns.vast_unsupported_video_extensions">ogv,flv</string>
+    <int name="com.applovin.sdk.PSoT.max_postback_attempts" value="3" />
+    <boolean name="com.applovin.sdk.PSoT.contract_on_close_ad_command" value="false" />
+    <long name="com.applovin.sdk.G0ns.force_hide_status_bar_delay_ms" value="0" />
+    <int name="com.applovin.sdk.G0ns.expandable_h_close_button_margin" value="10" />
+    <long name="com.applovin.sdk.G0ns.leader_ad_refresh_seconds" value="120" />
+    <string name="com.applovin.sdk.PSoT.resource_cache_prefix">https://vid.applovin.com/,https://pdn.applovin.com/,https://img.applovin.com/,https://d.applovin.com/,https://assets.applovin.com/,https://cdnjs.cloudflare.com/,http://vid.applovin.com/,http://pdn.applovin.com/,http://img.applovin.com/,http://d.applovin.com/,http://assets.applovin.com/,http://cdnjs.cloudflare.com/</string>
+    <string name="com.applovin.sdk.G0ns.emulator_device_list">generic,vbox</string>
+    <boolean name="com.applovin.sdk.G0ns.wrapped_zones" value="false" />
+    <string name="com.applovin.sdk.PSoT.text_incent_prompt_yes_option">Watch Now</string>
+    <boolean name="com.applovin.sdk.G0ns.submit_ad_stats_enabled" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.preload_merge_init_tasks_banner_regular_direct" value="false" />
+    <int name="com.applovin.sdk.G0ns.extended_preload_capacity_inter_regular_direct" value="15" />
+    <int name="com.applovin.sdk.G0ns.close_button_top_margin_video" value="8" />
+    <int name="com.applovin.sdk.PSoT.extended_preload_capacity_inter_regular_direct" value="15" />
+    <boolean name="com.applovin.sdk.PSoT.ad_resource_caching_enabled" value="true" />
+    <string name="com.applovin.sdk.PSoT.sc"></string>
+    <boolean name="com.applovin.sdk.PSoT.is_verbose_logging" value="false" />
+    <string name="com.applovin.sdk.PSoT.text_incent_prompt_body">Would you like to watch a video for a reward?</string>
+    <int name="com.applovin.sdk.PSoT.vast_wrapper_resolution_connection_timeout" value="30000" />
+    <boolean name="com.applovin.sdk.PSoT.click_failed_expand" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.force_back_button_enabled_always" value="false" />
+    <long name="com.applovin.sdk.G0ns.expandable_close_button_animation_duration_ms" value="300" />
+    <boolean name="com.applovin.sdk.PSoT.preload_merge_init_tasks_leader_regular_direct" value="false" />
+    <int name="com.applovin.sdk.PSoT.widget_imp_tracking_delay" value="2000" />
+    <string name="com.applovin.sdk.PSoT.text_incent_completion_body_reward_rejected">Your reward was rejected.</string>
+    <int name="com.applovin.sdk.PSoT.extended_preload_capacity_mrec_regular_indirect" value="15" />
+    <boolean name="com.applovin.sdk.PSoT.is_video_skippable" value="false" />
+    <int name="com.applovin.sdk.PSoT.close_button_right_margin_video" value="4" />
+    <boolean name="com.applovin.sdk.G0ns.handle_window_actions" value="false" />
+    <int name="com.applovin.sdk.G0ns.extended_preload_capacity_mrec_regular_direct" value="15" />
+    <boolean name="com.applovin.sdk.G0ns.detach_update_listener_on_pause" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.preload_merge_init_tasks_inter_regular_indirect" value="false" />
+    <int name="com.applovin.sdk.PSoT.click_tracking_retry_delay" value="2000" />
+    <boolean name="com.applovin.sdk.G0ns.preload_merge_init_tasks_leader_regular_indirect" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.contract_on_close_ad_command" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.leader_ad_refresh_enabled" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.ad_auto_preload_mincent" value="true" />
+    <boolean name="com.applovin.sdk.G0ns.preload_merge_init_tasks_leader_regular_direct" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.immediate_render" value="false" />
+    <int name="com.applovin.sdk.PSoT.vast_max_wrapper_depth" value="5" />
+    <boolean name="com.applovin.sdk.G0ns.lock_specific_orientation" value="false" />
+    <int name="com.applovin.sdk.G0ns.num_ads_preload_ahead" value="2" />
+    <string name="com.applovin.sdk.PSoT.vast_image_html">&lt;html&gt;&lt;head&gt;&lt;style&gt;html,body{height:100%;width:100%}body{background-image:url({SOURCE});background-repeat:no-repeat;background-size:contain;background-position:center;}a{position:absolute;top:0;bottom:0;left:0;right:0}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;a href=&quot;applovin://com.applovin.sdk/adservice/track_click_now&quot;&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <int name="com.applovin.sdk.G0ns.submit_data_retry_count_v1" value="1" />
+    <int name="com.applovin.sdk.G0ns.max_postback_attempts" value="3" />
+    <boolean name="com.applovin.sdk.G0ns.persist_zones" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.network_available_if_none_detected" value="true" />
+    <boolean name="com.applovin.sdk.G0ns.force_back_button_enabled_poststitial" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.preload_persisted_zones" value="true" />
+    <boolean name="com.applovin.sdk.G0ns.sanitize_webview" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.qq" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.return_wrapped_ad_on_empty_queue" value="false" />
+    <string name="com.applovin.sdk.PSoT.wrapped_sizes"></string>
+    <boolean name="com.applovin.sdk.G0ns.preload_persisted_zones" value="true" />
+    <boolean name="com.applovin.sdk.G0ns.is_track_ad_info" value="true" />
+    <string name="com.applovin.sdk.G0ns.text_incent_nonvideo_warning_close_option">Close</string>
+    <int name="com.applovin.sdk.PSoT.fetch_ad_retry_count_v1" value="1" />
+    <int name="com.applovin.sdk.G0ns.vast_wrapper_resolution_connection_timeout" value="30000" />
+    <int name="com.applovin.sdk.G0ns.preload_capacity_mrec_regular_direct" value="0" />
+    <string name="com.applovin.sdk.G0ns.publisher_id">95060</string>
+    <boolean name="com.applovin.sdk.G0ns.return_wrapped_ad_on_empty_queue" value="false" />
+    <int name="com.applovin.sdk.PSoT.http_socket_timeout" value="20000" />
+    <boolean name="com.applovin.sdk.PSoT.show_incent_postpopup" value="true" />
+    <boolean name="com.applovin.sdk.G0ns.cache_cleanup_enabled" value="true" />
+    <string name="com.applovin.sdk.PSoT.plugin_version"></string>
+    <boolean name="com.applovin.sdk.PSoT.lhs_close_button_video" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.preload_merge_init_tasks_mrec_regular_indirect" value="false" />
+    <string name="com.applovin.sdk.G0ns.vast_unsupported_video_types">video/ogg,video/x-flv</string>
+    <int name="com.applovin.sdk.G0ns.extended_preload_capacity_inter_videoa_direct" value="15" />
+    <int name="com.applovin.sdk.PSoT.preload_capacity_mrec_regular_direct" value="0" />
+    <boolean name="com.applovin.sdk.PSoT.allow_user_muting" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.click_overlay_enabled" value="false" />
+    <int name="com.applovin.sdk.PSoT.short_hash_size" value="16" />
+    <int name="com.applovin.sdk.PSoT.mute_button_size" value="32" />
+    <boolean name="com.applovin.sdk.PSoT.preload_merge_init_tasks_mrec_regular_indirect" value="false" />
+    <int name="com.applovin.sdk.G0ns.progress_bar_scale" value="10000" />
+    <boolean name="com.applovin.sdk.G0ns.force_back_button_enabled_close_button" value="false" />
+    <int name="com.applovin.sdk.G0ns.mute_button_size" value="32" />
+    <int name="com.applovin.sdk.G0ns.extended_preload_capacity_inter_regular_indirect" value="15" />
+    <boolean name="com.applovin.sdk.G0ns.preload_merge_init_tasks_banner_regular_indirect" value="false" />
+    <int name="com.applovin.sdk.G0ns.response_buffer_size" value="16000" />
+    <int name="com.applovin.sdk.G0ns.preload_capacity_inter_regular_direct" value="0" />
+    <boolean name="com.applovin.sdk.PSoT.wrapped_zones" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.widget_fail_on_slot_count_diff" value="true" />
+    <string name="com.applovin.sdk.PSoT.adserver_backup_endpoint">https://a.applvn.com/</string>
+    <boolean name="com.applovin.sdk.PSoT.incent_warning_enabled" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.validate_zone_input" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.submit_ad_stats_enabled" value="false" />
+    <int name="com.applovin.sdk.G0ns.ad_session_minutes" value="60" />
+    <int name="com.applovin.sdk.PSoT.close_fade_in_time" value="400" />
+    <string name="com.applovin.sdk.G0ns.fireos_manufacturer_list">amazon</string>
+    <string name="com.applovin.sdk.G0ns.adserver_backup_endpoint">https://a.applvn.com/</string>
+    <boolean name="com.applovin.sdk.PSoT.honor_publisher_settings_auto_preload_ad_sizes" value="true" />
+    <int name="com.applovin.sdk.G0ns.preload_capacity_inter_regular_indirect" value="0" />
+    <int name="com.applovin.sdk.G0ns.vast_wrapper_resolution_retry_count_v1" value="1" />
+    <int name="com.applovin.sdk.G0ns.mute_button_margin" value="10" />
+    <string name="com.applovin.sdk.G0ns.wrapped_sizes"></string>
+    <boolean name="com.applovin.sdk.PSoT.fail_ad_load_on_failed_video_cache" value="true" />
+    <boolean name="com.applovin.sdk.G0ns.honor_publisher_settings_auto_preload_ad_sizes" value="true" />
+    <string name="com.applovin.sdk.PSoT.webview_package_name">com.google.android.webview</string>
+    <boolean name="com.applovin.sdk.G0ns.user_agent_collection_enabled" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.mute_with_user_settings" value="true" />
+    <int name="com.applovin.sdk.G0ns.submit_ad_stats_max_count" value="500" />
+    <int name="com.applovin.sdk.G0ns.preload_capacity_leader_regular_indirect" value="0" />
+    <boolean name="com.applovin.sdk.G0ns.honor_publisher_settings_auto_preload_ad_types" value="true" />
+    <int name="com.applovin.sdk.G0ns.preload_capacity_zone_native" value="1" />
+    <string name="com.applovin.sdk.PSoT.publisher_id">124438</string>
+    <int name="com.applovin.sdk.PSoT.countdown_clock_text_size" value="28" />
+    <int name="com.applovin.sdk.PSoT.preload_capacity_banner_regular_direct" value="0" />
+    <string name="com.applovin.sdk.G0ns.device_token">MaznYs97JTiqaqEwnZGZ5kd56xo0jEp4vP4-kD7tB8e_ittS2_atxpzDbER8Gwy1MF7ID3JXaDqyxvRxcKwTcHrOToS-_JmTHS7-TGe5m9mjz8CMsspuIVNUhmgPNoFRwGmDCiVRe_jqQwbj94tPDlqsXsl9Jpa8nGF4evZJqtg=</string>
+    <string name="com.applovin.sdk.G0ns.text_incent_nonvideo_warning_body">You won’t get your reward if the game hasn’t finished.</string>
+    <string name="com.applovin.sdk.G0ns.soft_buttons_resource_id">config_showNavigationBar</string>
+    <boolean name="com.applovin.sdk.PSoT.honor_publisher_settings_verbose_logging" value="true" />
+    <string name="com.applovin.sdk.PSoT.click_overlay_color">#66000000</string>
+    <int name="com.applovin.sdk.G0ns.expandable_close_button_touch_area" value="0" />
+    <int name="com.applovin.sdk.PSoT.native_batch_precache_count" value="1" />
+    <boolean name="com.applovin.sdk.G0ns.hgn" value="false" />
+    <int name="com.applovin.sdk.G0ns.submit_ad_stats_connection_timeout" value="30000" />
+    <int name="com.applovin.sdk.G0ns.preload_capacity_banner_regular_indirect" value="0" />
+    <boolean name="com.applovin.sdk.G0ns.incent_nonvideo_warning_enabled" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.mediation_track_clk" value="true" />
+    <boolean name="com.applovin.sdk.G0ns.lhs_close_button_video" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.mediation_load_last_session_adapters_on_next_init" value="true" />
+    <int name="com.applovin.sdk.PSoT.widget_latch_timeout_ms" value="500" />
+    <string name="com.applovin.sdk.G0ns.vast_link_html">&lt;html&gt;&lt;head&gt;&lt;style&gt;html,body,iframe{height:100%;width:100%;}body{margin:0}iframe{border:0;overflow:hidden;position:absolute}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;iframe src={SOURCE} frameborder=0&gt;&lt;/iframe&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <int name="com.applovin.sdk.G0ns.preload_capacity_mrec_regular_indirect" value="0" />
+    <int name="com.applovin.sdk.PSoT.extended_preload_capacity_inter_videoa_direct" value="15" />
+    <string name="com.applovin.sdk.PSoT.emulator_model_list">Android SDK built for x86</string>
+    <int name="com.applovin.sdk.G0ns.close_button_right_margin_video" value="4" />
+    <int name="com.applovin.sdk.G0ns.preload_capacity_inter_videoa_indirect" value="0" />
+    <boolean name="com.applovin.sdk.G0ns.incent_warning_enabled" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.incent_nonvideo_warning_enabled" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.ad_auto_preload_incent" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.preload_merge_init_tasks_inter_videoa_direct" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.load_ads_if_no_internet" value="true" />
+    <string name="com.applovin.sdk.G0ns.sc"></string>
+    <string name="com.applovin.sdk.G0ns.text_incent_warning_body">You won’t get your reward if the video hasn’t finished.</string>
+    <boolean name="com.applovin.sdk.PSoT.mrec_ad_refresh_enabled" value="true" />
+    <int name="com.applovin.sdk.PSoT.vr_retry_count_v1" value="1" />
+    <long name="com.applovin.sdk.PSoT.inter_display_delay" value="200" />
+    <string name="com.applovin.sdk.PSoT.vast_unsupported_video_extensions">ogv,flv</string>
+    <boolean name="com.applovin.sdk.PSoT.consider_wrapped_ad_preloaded" value="false" />
+    <string name="com.applovin.sdk.G0ns.text_incent_nonvideo_warning_title">Attention!</string>
+    <string name="com.applovin.sdk.PSoT.api_endpoint">https://d.applovin.com/</string>
+    <boolean name="com.applovin.sdk.PSoT.honor_publisher_settings_auto_preload_ad_types" value="true" />
+    <int name="com.applovin.sdk.G0ns.extended_preload_capacity_inter_videoa_indirect" value="15" />
+    <int name="com.applovin.sdk.G0ns.preload_capacity_zone" value="1" />
+    <boolean name="com.applovin.sdk.G0ns.allow_user_muting" value="true" />
+    <string name="com.applovin.sdk.PSoT.precache_delimiters">)]',</string>
+    <string name="com.applovin.sdk.PSoT.text_incent_warning_close_option">Close</string>
+    <int name="com.applovin.sdk.G0ns.video_countdown_clock_margin" value="10" />
+    <int name="com.applovin.sdk.G0ns.vast_max_wrapper_depth" value="5" />
+    <boolean name="com.applovin.sdk.PSoT.android_gc_on_widget_detach" value="true" />
+    <int name="com.applovin.sdk.PSoT.mute_button_margin" value="10" />
+    <boolean name="com.applovin.sdk.PSoT.sp_apply" value="true" />
+    <boolean name="com.applovin.sdk.G0ns.consider_wrapped_ad_preloaded" value="false" />
+    <int name="com.applovin.sdk.G0ns.extended_preload_capacity_leader_regular_direct" value="15" />
+    <boolean name="com.applovin.sdk.G0ns.mediation_track_imp" value="true" />
+    <int name="com.applovin.sdk.PSoT.expandable_t_close_button_margin" value="10" />
+    <boolean name="com.applovin.sdk.PSoT.native_auto_cache_preload_resources" value="true" />
+    <string name="com.applovin.sdk.G0ns.webview_package_name">com.google.android.webview</string>
+    <string name="com.applovin.sdk.PSoT.device_token">MaznYs97JTiqaqEwnZGZ5v78b5rPnhIGV4nFhEpsaVJRQk5VBQ74n4OZfybZaXXg6zv0zRiGuib5-OAxRn-M5GK47G-kc4hvURVk6zQo6DjPsfUsiUNj4kHk15qKA4TbAXHTAX2HX86M0u3I4Ut5ZI94WWMxMpRYeViibLegr90=</string>
+    <boolean name="com.applovin.sdk.PSoT.draw_countdown_clock" value="true" />
+    <boolean name="com.applovin.sdk.G0ns.qq" value="false" />
+    <int name="com.applovin.sdk.PSoT.countdown_clock_stroke_size" value="4" />
+    <boolean name="com.applovin.sdk.PSoT.fireos_hide_adview_on_init" value="true" />
+    <long name="com.applovin.sdk.G0ns.ad_refresh_seconds" value="120" />
+    <int name="com.applovin.sdk.G0ns.extended_preload_capacity_banner_regular_indirect" value="15" />
+    <string name="com.applovin.sdk.G0ns.text_incent_nonvideo_warning_continue_option">Keep Playing</string>
+    <int name="com.applovin.sdk.PSoT.expandable_close_button_size" value="27" />
+    <boolean name="com.applovin.sdk.G0ns.fireos_collect_google_idfa_on_fail" value="false" />
+    <int name="com.applovin.sdk.G0ns.preload_capacity_leader_regular_direct" value="0" />
+    <boolean name="com.applovin.sdk.G0ns.video_callbacks_for_incent_nonvideo_ads_enabled" value="true" />
+    <string name="com.applovin.sdk.PSoT.emulator_device_list">generic,vbox</string>
+    <boolean name="com.applovin.sdk.PSoT.mediation_track_err" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.video_immersive_mode_enabled" value="false" />
+    <string name="com.applovin.sdk.G0ns.mediation_tracking_endpoint">https://rt.applovin.com/med</string>
+    <boolean name="com.applovin.sdk.PSoT.check_webview_has_gesture" value="false" />
+    <int name="com.applovin.sdk.G0ns.vr_retry_count_v1" value="1" />
+    <string name="com.applovin.sdk.G0ns.text_incent_warning_continue_option">Keep Watching</string>
+    <boolean name="com.applovin.sdk.G0ns.preload_merge_init_tasks_zones" value="false" />
+    <int name="com.applovin.sdk.PSoT.preload_capacity_leader_regular_direct" value="0" />
+    <boolean name="com.applovin.sdk.PSoT.dismiss_expanded_adview_on_refresh" value="false" />
+    <int name="com.applovin.sdk.G0ns.click_tracking_retry_delay" value="2000" />
+    <boolean name="com.applovin.sdk.PSoT.cleanup_webview" value="false" />
+    <int name="com.applovin.sdk.PSoT.submit_data_retry_count_v1" value="1" />
+    <string name="com.applovin.sdk.PSoT.api_backup_endpoint">https://d.applvn.com/</string>
+    <int name="com.applovin.sdk.PSoT.preload_capacity_banner_regular_indirect" value="0" />
+    <boolean name="com.applovin.sdk.G0ns.preload_native_ad_on_dequeue" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.mute_controls_enabled" value="false" />
+    <long name="com.applovin.sdk.PSoT.get_retry_delay_v1" value="10000" />
+    <int name="com.applovin.sdk.G0ns.fetch_ad_connection_timeout" value="30000" />
+    <string name="com.applovin.sdk.PSoT.text_incent_prompt_no_option">No Thanks</string>
+    <boolean name="com.applovin.sdk.G0ns.mute_controls_enabled" value="false" />
+    <int name="com.applovin.sdk.PSoT.preload_capacity_leader_regular_indirect" value="0" />
+    <string name="com.applovin.sdk.G0ns.adserver_endpoint">https://a.applovin.com/</string>
+    <long name="com.applovin.sdk.PSoT.expandable_close_button_animation_duration_ms" value="300" />
+    <int name="com.applovin.sdk.PSoT.click_tracking_timeout" value="10000" />
+    <boolean name="com.applovin.sdk.PSoT.hgn" value="false" />
+    <int name="com.applovin.sdk.PSoT.extended_preload_capacity_mrec_regular_direct" value="15" />
+    <int name="com.applovin.sdk.G0ns.submit_postback_retries" value="4" />
+    <string name="com.applovin.sdk.G0ns.plugin_version"></string>
+    <int name="com.applovin.sdk.PSoT.close_button_top_margin_video" value="8" />
+    <boolean name="com.applovin.sdk.PSoT.video_zero_length_as_computed" value="false" />
+    <int name="com.applovin.sdk.PSoT.preload_capacity_inter_regular_direct" value="0" />
+    <int name="com.applovin.sdk.G0ns.close_fade_in_time" value="400" />
+    <long name="com.applovin.sdk.PSoT.leader_ad_refresh_seconds" value="120" />
+    <boolean name="com.applovin.sdk.G0ns.ad_auto_preload_incent" value="true" />
+    <int name="com.applovin.sdk.G0ns.widget_latch_timeout_ms" value="500" />
+    <boolean name="com.applovin.sdk.G0ns.mute_videos" value="false" />
+    <int name="com.applovin.sdk.PSoT.android_click_spinner_style" value="16973853" />
+    <boolean name="com.applovin.sdk.G0ns.preload_merge_init_tasks_inter_regular_indirect" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.is_disabled" value="false" />
+    <long name="com.applovin.sdk.PSoT.vast_progress_tracking_countdown_step" value="1000" />
+    <string name="com.applovin.sdk.PSoT.ad_request_parameters"></string>
+    <int name="com.applovin.sdk.G0ns.submit_postback_timeout" value="10000" />
+    <boolean name="com.applovin.sdk.G0ns.display_ads_if_no_internet" value="true" />
+    <string name="com.applovin.sdk.PSoT.event_tracking_endpoint">https://rt.applovin.com/pix</string>
+    <boolean name="com.applovin.sdk.PSoT.preload_merge_init_tasks_banner_regular_indirect" value="false" />
+    <int name="com.applovin.sdk.PSoT.close_button_touch_area" value="0" />
+    <boolean name="com.applovin.sdk.PSoT.mediation_track_imp" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.android_drop_nomedia" value="true" />
+    <int name="com.applovin.sdk.PSoT.vast_video_selection_policy" value="2" />
+    <string name="com.applovin.sdk.G0ns.text_incent_prompt_yes_option">Watch Now</string>
+    <string name="com.applovin.sdk.G0ns.text_incent_completion_body_success">You have earned a reward!</string>
+    <string name="com.applovin.sdk.PSoT.text_incent_completion_body_quota_exceeded">You have already earned the maximum reward for today.</string>
+    <int name="com.applovin.sdk.G0ns.widget_imp_tracking_delay" value="2000" />
+    <boolean name="com.applovin.sdk.PSoT.force_back_button_enabled_poststitial" value="false" />
+    <int name="com.applovin.sdk.G0ns.http_socket_timeout" value="20000" />
+    <int name="com.applovin.sdk.G0ns.extended_preload_capacity_mrec_regular_indirect" value="15" />
+    <string name="com.applovin.sdk.PSoT.device_id">10badd1d2a65335861</string>
+    <string name="com.applovin.sdk.PSoT.text_incent_nonvideo_warning_body">You won’t get your reward if the game hasn’t finished.</string>
+    <boolean name="com.applovin.sdk.G0ns.draw_countdown_clock" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.persist_zones" value="true" />
+    <boolean name="com.applovin.sdk.G0ns.is_verbose_logging" value="false" />
+    <int name="com.applovin.sdk.G0ns.countdown_clock_size" value="32" />
+    <string name="com.applovin.sdk.G0ns.emulator_model_list">Android SDK built for x86</string>
+    <string name="com.applovin.sdk.PSoT.text_incent_warning_title">Attention!</string>
+    <boolean name="com.applovin.sdk.PSoT.mute_with_user_settings" value="true" />
+    <string name="com.applovin.sdk.G0ns.event_tracking_endpoint">https://rt.applovin.com/pix</string>
+    <boolean name="com.applovin.sdk.PSoT.ad_auto_preload_native" value="true" />
+    <int name="com.applovin.sdk.G0ns.close_button_touch_area" value="0" />
+    <boolean name="com.applovin.sdk.G0ns.sp_apply" value="true" />
+    <int name="com.applovin.sdk.G0ns.postback_service_max_queue_size" value="100" />
+    <boolean name="com.applovin.sdk.G0ns.show_close_on_exit" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.lock_specific_orientation" value="false" />
+    <string name="com.applovin.sdk.G0ns.text_incent_completion_body_quota_exceeded">You have already earned the maximum reward for today.</string>
+    <string name="com.applovin.sdk.G0ns.text_incent_completion_body_network_failure">We were unable to contact the rewards server. Please try again later.</string>
+    <boolean name="com.applovin.sdk.G0ns.force_rerender" value="false" />
+    <string name="com.applovin.sdk.PSoT.text_incent_warning_body">You won’t get your reward if the video hasn’t finished.</string>
+    <long name="com.applovin.sdk.PSoT.progress_bar_step" value="25" />
+    <long name="com.applovin.sdk.PSoT.mrec_ad_refresh_seconds" value="120" />
+    <int name="com.applovin.sdk.PSoT.response_buffer_size" value="16000" />
+    <string name="com.applovin.sdk.PSoT.ad_auto_preload_msizes">INTER,BANNER,MREC</string>
+    <boolean name="com.applovin.sdk.PSoT.force_back_button_enabled_always" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.fireos_load_empty_adview_on_init" value="false" />
+    <int name="com.applovin.sdk.G0ns.countdown_clock_stroke_size" value="4" />
+    <int name="com.applovin.sdk.PSoT.submit_ad_stats_max_count" value="500" />
+    <boolean name="com.applovin.sdk.PSoT.preload_native_ad_on_dequeue" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.show_mute_by_default" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.fireos_load_empty_adview_on_init" value="false" />
+    <string name="com.applovin.sdk.G0ns.emulator_manufacturer_list">Genymotion</string>
+    <long name="com.applovin.sdk.PSoT.user_agent_collection_timeout_ms" value="600" />
+    <int name="com.applovin.sdk.PSoT.submit_ad_stats_connection_timeout" value="30000" />
+    <boolean name="com.applovin.sdk.G0ns.mediation_track_clk" value="true" />
+    <int name="com.applovin.sdk.PSoT.video_countdown_clock_gravity" value="83" />
+    <string name="com.applovin.sdk.PSoT.vast_link_html">&lt;html&gt;&lt;head&gt;&lt;style&gt;html,body,iframe{height:100%;width:100%;}body{margin:0}iframe{border:0;overflow:hidden;position:absolute}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;iframe src={SOURCE} frameborder=0&gt;&lt;/iframe&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <int name="com.applovin.sdk.G0ns.click_tracking_timeout" value="10000" />
+    <boolean name="com.applovin.sdk.G0ns.ad_auto_preload_mincent" value="true" />
+    <int name="com.applovin.sdk.PSoT.extended_preload_capacity_leader_regular_direct" value="15" />
+    <boolean name="com.applovin.sdk.PSoT.vast_validate_with_extension_if_no_video_type" value="true" />
+    <int name="com.applovin.sdk.G0ns.progress_bar_vertical_padding" value="-8" />
+    <int name="com.applovin.sdk.PSoT.click_tracking_retry_count_v1" value="3" />
+    <float name="com.applovin.sdk.PSoT.volume_normalization_factor" value="6.6666665" />
+    <string name="com.applovin.sdk.G0ns.text_incent_completion_title">Video Reward</string>
+    <string name="com.applovin.sdk.G0ns.text_incent_prompt_title">Earn a Reward</string>
+    <int name="com.applovin.sdk.PSoT.preload_capacity_inter_regular_indirect" value="0" />
+    <boolean name="com.applovin.sdk.G0ns.force_ssl" value="false" />
+    <string name="com.applovin.sdk.PSoT.ad_auto_preload_sizes">INTER,BANNER,MREC</string>
+    <boolean name="com.applovin.sdk.G0ns.video_immersive_mode_enabled" value="false" />
+    <long name="com.applovin.sdk.G0ns.inter_display_delay" value="200" />
+    <string name="com.applovin.sdk.G0ns.ad_auto_preload_sizes">INTER,BANNER,MREC</string>
+    <boolean name="com.applovin.sdk.G0ns.fireos_hide_adview_on_init" value="true" />
+    <long name="com.applovin.sdk.PSoT.video_resume_delay" value="250" />
+    <long name="com.applovin.sdk.G0ns.cache_file_ttl_seconds" value="259200" />
+    <boolean name="com.applovin.sdk.G0ns.honor_publisher_settings_verbose_logging" value="true" />
+    <string name="com.applovin.sdk.G0ns.text_incent_prompt_body">Would you like to watch a video for a reward?</string>
+    <boolean name="com.applovin.sdk.PSoT.show_mute_by_default" value="false" />
+    <int name="com.applovin.sdk.G0ns.extended_preload_capacity_zone" value="15" />
+    <int name="com.applovin.sdk.G0ns.android_click_spinner_size" value="50" />
+    <boolean name="com.applovin.sdk.PSoT.widget_fail_on_slot_count_diff" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.is_disabled" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.preload_merge_init_tasks_zones" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.ad_auto_preload_native" value="true" />
+    <string name="com.applovin.sdk.PSoT.text_incent_warning_continue_option">Keep Watching</string>
+    <boolean name="com.applovin.sdk.G0ns.expandable_lhs_close_button" value="false" />
+    <int name="com.applovin.sdk.PSoT.mute_button_gravity" value="85" />
+    <int name="com.applovin.sdk.G0ns.close_button_size_video" value="30" />
+    <boolean name="com.applovin.sdk.G0ns.ad_preload_enabled" value="true" />
+    <int name="com.applovin.sdk.PSoT.preload_capacity_native_native_direct" value="1" />
+    <int name="com.applovin.sdk.PSoT.countdown_clock_size" value="32" />
+    <long name="com.applovin.sdk.PSoT.ad_refresh_seconds" value="120" />
+    <boolean name="com.applovin.sdk.G0ns.native_auto_cache_preload_resources" value="true" />
+    <long name="com.applovin.sdk.G0ns.user_agent_collection_timeout_ms" value="600" />
+    <int name="com.applovin.sdk.PSoT.close_button_size_video" value="30" />
+    <boolean name="com.applovin.sdk.G0ns.leader_ad_refresh_enabled" value="true" />
+    <boolean name="com.applovin.sdk.G0ns.dismiss_expanded_adview_on_refresh" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.android_drop_nomedia" value="true" />
+    <string name="com.applovin.sdk.PSoT.text_incent_completion_body_network_failure">We were unable to contact the rewards server. Please try again later.</string>
+    <boolean name="com.applovin.sdk.PSoT.preload_merge_init_tasks_leader_regular_indirect" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.cleanup_webview" value="false" />
+    <string name="com.applovin.sdk.G0ns.hash_algorithm">SHA-1</string>
+    <int name="com.applovin.sdk.G0ns.expandable_close_button_size" value="27" />
+    <boolean name="com.applovin.sdk.G0ns.dismiss_video_on_error" value="true" />
+    <boolean name="com.applovin.sdk.G0ns.click_overlay_enabled" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.cache_cleanup_enabled" value="true" />
+    <int name="com.applovin.sdk.G0ns.fetch_ad_retry_count_v1" value="1" />
+    <int name="com.applovin.sdk.G0ns.click_tracking_retry_count_v1" value="3" />
+    <string name="com.applovin.sdk.PSoT.emulator_hardware_list">ranchu,goldfish,vbox</string>
+    <string name="com.applovin.sdk.G0ns.event_tracking_backup_endpoint">https://rt.applvn.com/pix</string>
+    <boolean name="com.applovin.sdk.G0ns.show_incent_postpopup" value="true" />
+    <boolean name="com.applovin.sdk.G0ns.check_webview_has_gesture" value="false" />
+    <int name="com.applovin.sdk.PSoT.vast_max_response_length" value="640000" />
+    <int name="com.applovin.sdk.PSoT.expandable_close_button_touch_area" value="0" />
+    <string name="com.applovin.sdk.G0ns.ad_auto_preload_msizes">INTER,BANNER,MREC</string>
+    <boolean name="com.applovin.sdk.PSoT.honor_publisher_settings" value="true" />
+    <int name="com.applovin.sdk.PSoT.extended_preload_capacity_banner_regular_direct" value="15" />
+    <long name="com.applovin.sdk.G0ns.get_retry_delay_v1" value="10000" />
+    <int name="com.applovin.sdk.PSoT.vast_wrapper_resolution_retry_count_v1" value="1" />
+    <boolean name="com.applovin.sdk.G0ns.preload_merge_init_tasks_inter_regular_direct" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.events_enabled" value="true" />
+    <string name="com.applovin.sdk.G0ns.vast_image_html">&lt;html&gt;&lt;head&gt;&lt;style&gt;html,body{height:100%;width:100%}body{background-image:url({SOURCE});background-repeat:no-repeat;background-size:contain;background-position:center;}a{position:absolute;top:0;bottom:0;left:0;right:0}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;a href=&quot;applovin://com.applovin.sdk/adservice/track_click_now&quot;&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <long name="com.applovin.sdk.G0ns.progress_bar_step" value="25" />
+    <string name="com.applovin.sdk.PSoT.text_incent_nonvideo_warning_continue_option">Keep Playing</string>
+    <int name="com.applovin.sdk.G0ns.extended_preload_capacity_banner_regular_direct" value="15" />
+    <boolean name="com.applovin.sdk.G0ns.countdown_toggleable" value="false" />
+    <int name="com.applovin.sdk.PSoT.num_ads_preload_ahead" value="2" />
+    <int name="com.applovin.sdk.PSoT.submit_postback_timeout" value="10000" />
+    <long name="com.applovin.sdk.G0ns.mrec_ad_refresh_seconds" value="120" />
+    <int name="com.applovin.sdk.G0ns.vast_max_response_length" value="640000" />
+    <boolean name="com.applovin.sdk.G0ns.preload_merge_init_tasks_mrec_regular_direct" value="false" />
+    <int name="com.applovin.sdk.G0ns.native_batch_precache_count" value="1" />
+    <boolean name="com.applovin.sdk.PSoT.force_ssl" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.show_incent_prepopup" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.countdown_toggleable" value="false" />
+    <int name="com.applovin.sdk.G0ns.countdown_clock_text_size" value="28" />
+    <boolean name="com.applovin.sdk.PSoT.force_back_button_enabled_close_button" value="false" />
+    <int name="com.applovin.sdk.G0ns.short_hash_size" value="16" />
+    <int name="com.applovin.sdk.G0ns.preload_capacity_banner_regular_direct" value="0" />
+    <boolean name="com.applovin.sdk.PSoT.ad_refresh_enabled" value="false" />
+    <int name="com.applovin.sdk.PSoT.video_countdown_clock_margin" value="10" />
+    <string name="com.applovin.sdk.PSoT.text_incent_nonvideo_warning_close_option">Close</string>
+    <int name="com.applovin.sdk.G0ns.cache_max_size_mb" value="-1" />
+    <int name="com.applovin.sdk.PSoT.submit_ad_stats_retry_count" value="1" />
+    <boolean name="com.applovin.sdk.G0ns.click_failed_expand" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.android_require_external_storage_permission" value="true" />
+    <long name="com.applovin.sdk.G0ns.vast_progress_tracking_countdown_step" value="1000" />
+    <boolean name="com.applovin.sdk.G0ns.ad_resource_caching_enabled" value="true" />
+    <int name="com.applovin.sdk.PSoT.expandable_h_close_button_margin" value="10" />
+    <boolean name="com.applovin.sdk.G0ns.mediation_load_last_session_adapters_on_next_init" value="true" />
+    <long name="com.applovin.sdk.PSoT.cache_file_ttl_seconds" value="259200" />
+    <int name="com.applovin.sdk.G0ns.preload_capacity_native_native_direct" value="1" />
+    <string name="com.applovin.sdk.PSoT.fireos_manufacturer_list">amazon</string>
+    <boolean name="com.applovin.sdk.PSoT.mute_videos" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.preload_merge_init_tasks_inter_videoa_direct" value="false" />
+    <float name="com.applovin.sdk.G0ns.volume_normalization_factor" value="6.6666665" />
+    <boolean name="com.applovin.sdk.G0ns.preload_merge_init_tasks_inter_videoa_indirect" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.mediation_track_err" value="true" />
+    <string name="com.applovin.sdk.PSoT.adserver_endpoint">https://a.applovin.com/</string>
+    <int name="com.applovin.sdk.PSoT.progress_bar_vertical_padding" value="-8" />
+    <int name="com.applovin.sdk.G0ns.submit_ad_stats_retry_count" value="1" />
+    <int name="com.applovin.sdk.PSoT.submit_postback_retries" value="4" />
+    <string name="com.applovin.sdk.PSoT.soft_buttons_resource_id">config_showNavigationBar</string>
+    <string name="com.applovin.sdk.PSoT.text_incent_nonvideo_warning_title">Attention!</string>
+    <int name="com.applovin.sdk.PSoT.preload_capacity_inter_videoa_indirect" value="0" />
+    <long name="com.applovin.sdk.PSoT.force_hide_status_bar_delay_ms" value="0" />
+    <boolean name="com.applovin.sdk.PSoT.preload_merge_init_tasks_inter_videoa_indirect" value="false" />
+    <string name="com.applovin.sdk.G0ns.top_level_events">landing,checkout,iap</string>
+    <string name="com.applovin.sdk.PSoT.top_level_events">landing,checkout,iap</string>
+    <int name="com.applovin.sdk.PSoT.cache_max_size_mb" value="-1" />
+    <boolean name="com.applovin.sdk.G0ns.android_gc_on_widget_detach" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.show_close_on_exit" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.hw_accelerate_webviews" value="false" />
+    <string name="com.applovin.sdk.G0ns.text_incent_completion_body_reward_rejected">Your reward was rejected.</string>
+    <string name="com.applovin.sdk.G0ns.text_incent_completion_close_option">Okay</string>
+    <int name="com.applovin.sdk.PSoT.android_click_spinner_size" value="50" />
+    <string name="com.applovin.sdk.G0ns.emulator_hardware_list">ranchu,goldfish,vbox</string>
+    <int name="com.applovin.sdk.PSoT.preload_capacity_inter_videoa_direct" value="0" />
+    <boolean name="com.applovin.sdk.PSoT.display_ads_if_no_internet" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.mediation_load_predefined_adapters_on_next_init" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.fireos_collect_google_idfa_on_fail" value="false" />
+    <string name="com.applovin.sdk.G0ns.text_incent_prompt_no_option">No Thanks</string>
+    <boolean name="com.applovin.sdk.G0ns.mediation_load_predefined_adapters_on_next_init" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.handle_window_actions" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.dismiss_video_on_error" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.preload_merge_init_tasks_inter_regular_direct" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.force_rerender" value="false" />
+    <string name="com.applovin.sdk.G0ns.precache_delimiters">)]',</string>
+    <boolean name="com.applovin.sdk.G0ns.load_ads_if_no_internet" value="true" />
+    <boolean name="com.applovin.sdk.G0ns.ignore_is_showing" value="false" />
+    <string name="com.applovin.sdk.PSoT.vast_unsupported_video_types">video/ogg,video/x-flv</string>
+    <string name="com.applovin.sdk.PSoT.text_incent_prompt_title">Earn a Reward</string>
+    <int name="com.applovin.sdk.PSoT.extended_preload_capacity_banner_regular_indirect" value="15" />
+    <string name="com.applovin.sdk.PSoT.emulator_manufacturer_list">Genymotion</string>
+    <string name="com.applovin.sdk.G0ns.text_incent_warning_close_option">Close</string>
+    <boolean name="com.applovin.sdk.PSoT.dismiss_expanded_adview_on_detach" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.show_incent_prepopup" value="true" />
+    <int name="com.applovin.sdk.PSoT.preload_capacity_mrec_regular_indirect" value="0" />
+    <boolean name="com.applovin.sdk.G0ns.is_video_skippable" value="false" />
+    <int name="com.applovin.sdk.PSoT.preload_capacity_zone" value="1" />
+    <long name="com.applovin.sdk.G0ns.video_resume_delay" value="250" />
+    <boolean name="com.applovin.sdk.G0ns.honor_publisher_settings" value="true" />
+    <int name="com.applovin.sdk.G0ns.preload_capacity_inter_videoa_direct" value="0" />
+    <int name="com.applovin.sdk.G0ns.expandable_t_close_button_margin" value="10" />
+    <string name="com.applovin.sdk.PSoT.text_incent_completion_title">Video Reward</string>
+    <boolean name="com.applovin.sdk.G0ns.mrec_ad_refresh_enabled" value="true" />
+    <boolean name="com.applovin.sdk.PSoT.ad_preload_enabled" value="true" />
+    <string name="com.applovin.sdk.G0ns.ad_request_parameters"></string>
+    <boolean name="com.applovin.sdk.PSoT.immediate_render" value="false" />
+    <boolean name="com.applovin.sdk.G0ns.video_zero_length_as_computed" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.ignore_is_showing" value="false" />
+    <int name="com.applovin.sdk.PSoT.postback_service_max_queue_size" value="100" />
+    <boolean name="com.applovin.sdk.PSoT.is_track_ad_info" value="true" />
+    <string name="com.applovin.sdk.PSoT.hash_algorithm">SHA-1</string>
+    <int name="com.applovin.sdk.G0ns.http_connection_timeout" value="30000" />
+    <boolean name="com.applovin.sdk.PSoT.sanitize_webview" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.adr" value="false" />
+    <boolean name="com.applovin.sdk.PSoT.android_require_external_storage_permission" value="true" />
+    <string name="com.applovin.sdk.G0ns.resource_cache_prefix">https://vid.applovin.com/,https://pdn.applovin.com/,https://img.applovin.com/,https://d.applovin.com/,https://assets.applovin.com/,https://cdnjs.cloudflare.com/,http://vid.applovin.com/,http://pdn.applovin.com/,http://img.applovin.com/,http://d.applovin.com/,http://assets.applovin.com/,http://cdnjs.cloudflare.com/</string>
+    <string name="com.applovin.sdk.G0ns.api_backup_endpoint">https://d.applvn.com/</string>
+    <boolean name="com.applovin.sdk.G0ns.fail_ad_load_on_failed_video_cache" value="true" />
+    <int name="com.applovin.sdk.PSoT.extended_preload_capacity_leader_regular_indirect" value="15" />
+</map>

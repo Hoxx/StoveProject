@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="AdColony_APP_ID">app2deb500fc8024185be</string>
+    <boolean name="Limit_Ad_Tracking" value="true" />
+    <string name="AdvertisementID">ba1c847a-e508-5d0a-de75-23e50ab57579</string>
+    <long name="Failed_AppLovin_3" value="1544762035333" />
+    <string name="APPLICATION_ID">597270dfa9104d00dfe7e6d8</string>
+    <long name="LAST_LAUNCH_REQUEST" value="1544848143411" />
+    <string name="SUPPORTED_CREATIVE_TYPES">REWARDED_VIDEO_INTERSTITIAL</string>
+    <long name="FIRST_BOOT_TIME" value="1544520450669" />
+    <int name="SESSION_COUNT" value="21" />
+    <long name="Failed_Facebook_3" value="1544835667519" />
+    <string name="UnityAds_APP_ID">1506929</string>
+    <string name="PLUGIN_VERSION">unity_6.1.2</string>
+    <boolean name="AUTO_RELOAD" value="false" />
+    <string name="Vungle_VERSION_ID">1516988945</string>
+    <string name="Facebook_VERSION_ID">1524678700</string>
+    <string name="AdColony_VERSION_ID">1513406851</string>
+    <boolean name="USE_TAPDAQ_KEYS" value="false" />
+    <string name="Vungle_APP_ID">59936ba47659420759005246</string>
+    <long name="START_SESSION_TIME" value="1544848138042" />
+    <int name="AD_ID_RETREIVAL_LENGTH" value="10" />
+    <boolean name="RETRY_LAUNCH_REQUEST" value="false" />
+    <string name="CLIENT_KEY">7c163368-c276-4675-ab93-c0500c7a6b36</string>
+    <string name="AppLovin_VERSION_ID">1503105649</string>
+    <string name="UnityAds_VERSION_ID">1503105647</string>
+</map>

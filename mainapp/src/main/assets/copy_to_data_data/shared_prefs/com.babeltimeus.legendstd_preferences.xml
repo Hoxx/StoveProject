@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <long name="com.facebook.appevents.SessionInfo.sessionStartTime" value="1544850839985" />
+    <long name="com.facebook.appevents.SessionInfo.sessionEndTime" value="1544850845732" />
+    <string name="07e49c79448de22cb1e4bfa627592ae3eb163c411cd544d942f8e2d42a1afd16">140.143.216.201</string>
+    <string name="8bb0f8272e2cbd4b7efb4c00a70419272a1d8e2597caf7df619343755eb805f0">140.143.216.147</string>
+    <int name="com.facebook.appevents.SessionInfo.interruptionCount" value="0" />
+    <string name="com.applovin.sdk.impl.isFirstRun">false</string>
+    <boolean name="variations_seed_native_stored" value="true" />
+    <string name="com.facebook.appevents.SessionInfo.sessionId">57b477a1-d00f-4f7b-ba04-ae66516ea9c6</string>
+</map>
